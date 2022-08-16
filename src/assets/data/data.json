@@ -1,75 +1,86 @@
 {
-    "nombre":"Marquez Silva, Mauricio German",
-    "posicion":"Programador Full Stack Jr",
-    "ubicacion":"San Miguel de Tucumán - Tucumán - (Argentina)",
-    "fondoPerfil":"../assets/img/fondo-perfil.png",
-    "fotoPerfil":"../assets/img/foto-perfil.jpg",
-    "acercaDe":"Soy tecnico en hardware de pc y programador full stack jr, me gusta aprender cosas nuevas sobre computación y electronica",
-    "experiencias":[
-        {
-            "posicion":"Tecnico reparador de PC",
-            "compania":"IT Solution",
-            "img":"#",
-            "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
-            "modo":"Jornada parcial",
-            "inicio":"2009",
-            "fin":"actualidad",
-            "tiempoTranscurrido":"6 años y 2 meses"
-        },
-        {
-            "posicion":"Mantenimiento y reparación maquinas arcade",
-            "compania":"Electronica universal",
-            "img":"#",
-            "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
-            "modo":"Jornada parcial",
-            "inicio":"2009",
-            "fin":"2016",
-            "tiempoTranscurrido":"6 años"
-        },
-        {
-            "posicion":"Atención al publico",
-            "compania":"Ciber café scorpio",
-            "img":"#",
-            "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
-            "modo":"Full time",
-            "inicio":"2003",
-            "fin":"2009",
-            "tiempoTranscurrido":"6 años"
-    }],
-    "educacion":[
-        {
-            "escuela":"Universidad Tecnologica Nacional - Facultad Regional Tucumán",
-            "titulo":"Ingeniería",
-            "img":"#",
-            "carrera":"Sistemas de información",
-            "puntaje":"",
-            "inicio":"2016",
-            "fin":"actualidad"
-        },
-        {
-            "escuela":"C&P Soft",
-            "titulo":"Tecnico en computación",
-            "img":"",
-            "carrera":"Secundario",
-            "puntaje":"",
-            "inicio":"",
-            "fin":"2006"
-    }],
-    "logros":[
-        {
-            "nombre":"Portfolio",
-            "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
-            "paginaUrl":"#",
-            "repositorioUrl":"#",
-            "img":"../assets/img/portfolio.png"
-        },
-        {
-            "nombre":"Portfolio2",
-            "descripcion":"Lorem ipsum doolore temporibus quaerat earum facilis tempore minima. Saepe?",
-            "paginaUrl":"#",
-            "repoUrl":"#",
-            "img":"../assets/img/portfolio.png"
-        }
-    ]
-
+  "nombre": "Marquez Silva, Mauricio German",
+  "posicion": "Programador Full Stack Jr",
+  "ubicacion": "San Miguel de Tucumán - Tucumán - (Argentina)",
+  "fondoPerfil": "../assets/img/fondo-perfil.png",
+  "fotoPerfil": "../assets/img/foto-perfil.jpg",
+  "acercaDe": "Soy tecnico en hardware de pc y redes informaticas y programador full stack jr, me gusta aprender cosas nuevas sobre computación y electronica.",
+  "experiencias": [
+    {
+      "posicion": "Tecnico reparador de PC",
+      "compania": "IT Solution",
+      "img": "#",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
+      "modo": "Jornada parcial",
+      "inicio": "2009",
+      "fin": "actualidad",
+      "tiempoTranscurrido": "6 años y 2 meses"
+    },
+    {
+      "posicion": "Mantenimiento y reparación maquinas arcade",
+      "compania": "Electronica universal",
+      "img": "#",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
+      "modo": "Jornada parcial",
+      "inicio": "2009",
+      "fin": "2016",
+      "tiempoTranscurrido": "6 años"
+    },
+    {
+      "posicion": "Atención al publico",
+      "compania": "Ciber café scorpio",
+      "img": "#",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
+      "modo": "Full time",
+      "inicio": "2003",
+      "fin": "2009",
+      "tiempoTranscurrido": "6 años"
+    }
+  ],
+  "educacion": [
+    {
+      "escuela": "Universidad Tecnologica Nacional - Facultad Regional Tucumán",
+      "titulo": "Ingeniería",
+      "img": "#",
+      "carrera": "Sistemas de información",
+      "puntaje": "",
+      "inicio": "2016",
+      "fin": "actualidad"
+    },
+    {
+      "escuela": "C&P Soft",
+      "titulo": "Tecnico en computación",
+      "img": "",
+      "carrera": "Secundario",
+      "puntaje": "",
+      "inicio": "",
+      "fin": "2006"
+    }
+  ],
+  "logros": [
+    {
+      "nombre": "Portfolio",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
+      "paginaUrl": "#",
+      "repositorioUrl": "#",
+      "img": "../assets/img/portfolio.png"
+    },
+    {
+      "nombre": "Portfolio2",
+      "descripcion": "Lorem ipsum doolore temporibus quaerat earum facilis tempore minima. Saepe?",
+      "paginaUrl": "#",
+      "repoUrl": "#",
+      "img": "../assets/img/portfolio.png"
+    }
+  ],
+  "aptitudes": [
+    {
+      "nombre": "Resolución de problemas",
+      "progreso": 75
+    },
+    {
+      "nombre": "Diseño de sistemas",
+      "progreso": 25
+    }
+  ]
 }

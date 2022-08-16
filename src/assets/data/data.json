@@ -5,7 +5,8 @@
     "fondoPerfil":"../assets/img/fondo-perfil.png",
     "fotoPerfil":"../assets/img/foto-perfil.jpg",
     "acercaDe":"Soy tecnico en hardware de pc y programador full stack jr, me gusta aprender cosas nuevas sobre computación y electronica",
-    "experiencias":[{
+    "experiencias":[
+        {
             "posicion":"Tecnico reparador de PC",
             "compania":"IT Solution",
             "img":"#",
@@ -35,7 +36,8 @@
             "fin":"2009",
             "tiempoTranscurrido":"6 años"
     }],
-    "educacion":[{
+    "educacion":[
+        {
             "escuela":"Universidad Tecnologica Nacional - Facultad Regional Tucumán",
             "titulo":"Ingeniería",
             "img":"#",
@@ -52,6 +54,22 @@
             "puntaje":"",
             "inicio":"",
             "fin":"2006"
-    }]
+    }],
+    "logros":[
+        {
+            "nombre":"Portfolio",
+            "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
+            "paginaUrl":"#",
+            "repositorioUrl":"#",
+            "img":"../assets/img/portfolio.png"
+        },
+        {
+            "nombre":"Portfolio2",
+            "descripcion":"Lorem ipsum doolore temporibus quaerat earum facilis tempore minima. Saepe?",
+            "paginaUrl":"#",
+            "repoUrl":"#",
+            "img":"../assets/img/portfolio.png"
+        }
+    ]
 
 }

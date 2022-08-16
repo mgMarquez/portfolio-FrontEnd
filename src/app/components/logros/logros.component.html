@@ -8,65 +8,25 @@
       </button>
     </h4>
     <!-- 1 proyecto -->
-    <div class="row">
+    <div class="row" *ngFor="let logro of logrosList">
       <div class="col">
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
               <img
-                src="../assets/img/portfolio.png"
+                [src]="logro.img"
                 class="img-fluid rounded-start border"
                 alt="..."
               />
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Portfolio</h5>
+                <h5 class="card-title">{{logro.nombre}}</h5>
                 <p class="card-text">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Repellat dolorem architecto quibusdam culpa, et ipsa rerum
-                  fugiat enim alias eaque delectus, expedita possimus autem
-                  doloremque voluptate similique sed animi totam.
+                  {{logro.descripcion}}
                 </p>
-                <a href="#" class="card-link">Página</a>
-                <a href="#" class="card-link">Github</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-1 align-self-center">
-        <button type="button" class="btn btn-secondary btn-sm rounded-circle">
-          <i class="fa-solid fa-pencil"></i>
-        </button>
-        <button type="button" class="btn btn-secondary btn-sm rounded-circle">
-          <i class="fa-solid fa-trash"></i>
-        </button>
-      </div>
-    </div>
-    <!-- 2 proyecto -->
-    <div class="row">
-      <div class="col">
-        <div class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img
-                src="../assets/img/portfolio.png"
-                class="img-fluid rounded-start border"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Portfolio</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Nobis consectetur dolorum debitis! Magnam iste commodi vitae
-                  repellat eum amet inventore quos soluta quod ea tempora
-                  delectus, aut natus facere cumque.
-                </p>
-                <a href="#" class="card-link">Página</a>
-                <a href="#" class="card-link">Github</a>
+                <a [href]="logro.paginaUrl" class="card-link">Página</a>
+                <a [href]="logro.repoUrl" class="card-link">Github</a>
               </div>
             </div>
           </div>

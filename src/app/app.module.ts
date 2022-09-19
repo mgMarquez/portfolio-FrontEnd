@@ -9,6 +9,7 @@ import { EducacionComponent } from './components/educacion/educacion.component';
 import { AptitudesComponent } from './components/aptitudes/aptitudes.component';
 import { LogrosComponent } from './components/logros/logros.component';
 import {HttpClientModule} from '@angular/common/http';
+import { MenuNavegacionComponent } from './components/menu-navegacion/menu-navegacion.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
     ExperienciaComponent,
     EducacionComponent,
     AptitudesComponent,
-    LogrosComponent
+    LogrosComponent,
+    MenuNavegacionComponent
   ],
   imports: [
     BrowserModule,

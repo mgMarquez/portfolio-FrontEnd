@@ -1,5 +1,14 @@
+/* Tamaño fijo para el banner */
 .card-img-top {
     width: 100%;
     height: 25vw;
     object-fit: cover;
+}
+/* Marco de foto de perfil*/
+.marco-perfil {
+    margin-top: -14vw;
+}
+/* altura fija de foto de perfil */
+.foto-perfil {
+    height: 25vw;
 }

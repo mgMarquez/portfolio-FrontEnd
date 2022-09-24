@@ -41,19 +41,19 @@
     {
       "escuela": "Universidad Tecnologica Nacional - Facultad Regional Tucumán",
       "titulo": "Ingeniería",
-      "img": "#",
+      "img": "../assets/img/UTN_logo.jpg",
       "carrera": "Sistemas de información",
-      "puntaje": "",
+      "descripcion": "Lorem ipsum doolore temporibus quaerat earum facilis tempore minima. Saepe?",
       "inicio": "2016",
-      "fin": "actualidad"
+      "fin": "2022"
     },
     {
       "escuela": "C&P Soft",
       "titulo": "Tecnico en computación",
-      "img": "",
+      "img": "../assets/img/fondo-perfil.jpg",
       "carrera": "Secundario",
-      "puntaje": "",
-      "inicio": "",
+      "descripcion": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat nemo doloremque cum, necessitatibus labore iusto mollitia amet explicabo consequatur dolor aperiam rerum dolore temporibus quaerat earum facilis tempore minima. Saepe?",
+      "inicio": "2002",
       "fin": "2006"
     }
   ],

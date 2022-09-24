@@ -7,19 +7,31 @@
         <i class="fa-solid fa-plus"></i>
       </button>
     </h4>
-    <div class="row" *ngFor="let educacion of educacionList">
-      <div class="col-2 text-muted text-center align-self-center">
-        {{educacion.inicio}} - {{educacion.fin}}
+    <div class="row py-2" *ngFor="let educacion of educacionList">
+      <div class="col-2 m-auto">
+        <div class="row">
+          <img
+                [src]="educacion.img"
+                class="img-fluid"
+                alt="..."
+              />
+        </div>
+        <div class="row">
+          <span class="text-center text-muted">{{educacion.inicio}} - {{educacion.fin}}</span>
+        </div>        
       </div>
       <div class="col">
         <ul class="list-unstyled">
           <li class="h4">{{educacion.escuela}}</li>
           <li>
-            <em>{{ educacion.titulo }}, {{ educacion.carrera }}</em>
-          </li>          
+            <em class="text-muted">{{ educacion.titulo }}, {{ educacion.carrera }}</em>
+          </li>   
+          <li>
+            <p>{{ educacion.descripcion }}</p>
+          </li>       
         </ul>
       </div>
-      <div class="col-1 align-self-center">
+      <div class="col-1 m-auto">
         <button type="button" class="btn btn-secondary btn-sm rounded-circle">
           <i class="fa-solid fa-pencil"></i>
         </button>
@@ -28,5 +40,6 @@
         </button>
       </div>
     </div>
+    <!-- fin ngFor -->
   </div>
 </div>

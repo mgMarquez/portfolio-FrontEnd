@@ -1,0 +1,60 @@
+<section class="vh-100" style="background-color: #508bfc">
+  <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem">
+            <div class="card-body p-5 text-center">
+              <h3 class="mb-5">Iniciar sesion</h3>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="typeEmailX-2">Email</label>
+                <input
+                  type="email"
+                  id="typeEmailX-2"
+                  class="form-control form-control-lg"
+                  formControlName="email"
+                  [ngClass]="{'is-invalid':Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}"
+                />
+                <div *ngIf="Email?.errors && Email?.touched">
+                  <p *ngIf="Email?.hasError('required')" class="text-danger">
+                    El email es requerido.
+                  </p>
+                  <p *ngIf="Email?.hasError('email')" class="text-danger">
+                    El formato del email debe ser válido.
+                  </p>
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="typePasswordX-2"
+                  >Contraseña</label
+                >
+                <input
+                  type="password"
+                  id="typePasswordX-2"
+                  class="form-control form-control-lg"
+                  formControlName="password"
+                  [ngClass]="{'is-invalid': Password?.errors && Password?.touched,
+                      'is-valid': !Password?.errors && Password?.touched}"    
+                />
+                <div *ngIf="Password?.errors && Password?.touched">
+                  <p *ngIf="Password?.hasError('required')" class="text-danger">
+                    La contraseña es requerida.
+                  </p>
+                  <p *ngIf="Password?.hasError('minlength')" class="text-danger">
+                    La contraseña debe ser de 8 o más caracteres.
+                  </p>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-lg btn-block" type="submit">
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

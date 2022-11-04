@@ -10,6 +10,11 @@ import { AptitudesComponent } from './components/aptitudes/aptitudes.component';
 import { LogrosComponent } from './components/logros/logros.component';
 import {HttpClientModule} from '@angular/common/http';
 import { MenuNavegacionComponent } from './components/menu-navegacion/menu-navegacion.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,11 +25,15 @@ import { MenuNavegacionComponent } from './components/menu-navegacion/menu-naveg
     EducacionComponent,
     AptitudesComponent,
     LogrosComponent,
-    MenuNavegacionComponent
+    MenuNavegacionComponent,
+    LoginComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

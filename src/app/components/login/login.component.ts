@@ -16,15 +16,8 @@ export class LoginComponent implements OnInit {
               private ruta:Router) { 
     this.form = this.formBuilder.group(
         {
-          email:['', [Validators.required, Validators.email]],
-          password:['', [Validators.required, Validators.minLength(8)]],
-          deviceInfo:this.formBuilder.group(
-            {
-              deviceId: [""],
-              deviceType: ["DEVICE_TYPE_ANDROID"],
-              noteificationToken:[""]
-            }
-          )
+          nombreUsuario:['', [Validators.required, Validators.minLength(3)]],
+          password:['', [Validators.required, Validators.minLength(3)]]
         }
       )
   }
@@ -32,8 +25,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get Email() {
-    return this.form.get('email');
+  get NombreUsuario() {
+    return this.form.get('nombreUsuario');
   }
 
   get Password() {

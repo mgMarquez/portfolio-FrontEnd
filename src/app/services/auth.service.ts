@@ -7,7 +7,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  url ='http://localhost:3000/api/auth/login';
+  url ='https://portfolio-mgmarquez.koyeb.app/auth/login';
   currentUserSubject: BehaviorSubject<any>;
 
   constructor(private http:HttpClient) { 
@@ -18,7 +18,6 @@ export class AuthService {
   IniciarSesion(credenciales:any): Observable<any> {
     return this.http.post(this.url, credenciales).pipe(map(data => {
       sessionStorage.setItem('currentUser', JSON.stringify(data));
-
       return data;
     }))
   }

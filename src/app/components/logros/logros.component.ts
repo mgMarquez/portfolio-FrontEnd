@@ -12,7 +12,7 @@ export class LogrosComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosPorfolio.obtenerDatos().subscribe(data => {
-      this.logrosList = data.logros;
+      this.logrosList = data.proyectos;
     })
   }
 

@@ -14,19 +14,18 @@
           <div class="row g-0">
             <div class="col-md-4">
               <img
-                [src]="logro.img"
+                [src]="logro.imgUrl"
                 class="img-fluid rounded-start border"
                 alt="..."
               />
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">{{logro.nombre}}</h5>
+                <h5 class="card-title">{{logro.titulo}}</h5>
                 <p class="card-text">
                   {{logro.descripcion}}
                 </p>
-                <a [href]="logro.paginaUrl" class="card-link">Página</a>
-                <a [href]="logro.repoUrl" class="card-link">Github</a>
+                <a [href]="logro.webUrl" class="card-link">Página</a>
               </div>
             </div>
           </div>

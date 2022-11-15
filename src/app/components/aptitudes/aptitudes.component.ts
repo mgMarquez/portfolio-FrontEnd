@@ -12,7 +12,7 @@ export class AptitudesComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosPorfolio.obtenerDatos().subscribe(data => {
-      this.aptitudesList = data.aptitudes;
+      this.aptitudesList = data.tecnologias;
     })
   }
 

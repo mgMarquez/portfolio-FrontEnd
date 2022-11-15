@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PortfolioService {
-  url:string = "https://portfolio-mgmarquez.koyeb.app/api";
+  url:string = "https://portfolio-mgmarquez.koyeb.app/api/portfolio";
   constructor(private http:HttpClient) { }
 
   obtenerDatos() : Observable<any>{
-    return this.http.get(this.url+"/portfolio");
+    return this.http.get(this.url+"/personas/1");
   }
 }

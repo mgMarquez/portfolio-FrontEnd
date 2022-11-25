@@ -1,6 +1,7 @@
 <!-- Perfil -->
 <div class="card m-2 shadow">
-  <img [src]="miPortfolio.fondoPerfil" class="card-img-top" alt="..." />
+  <!-- Imagen fondo de perfil -->
+  <img [src]="miPortfolio.bannerUrl" class="card-img-top" alt="..." />
   <div class="card-body">
     <div class="container marco-perfil">
       <div class="row justify-content-start">
@@ -8,8 +9,8 @@
           <!-- Foto de perfil con botón -->
           <div class="position-relative">
             <img
-              [src]="miPortfolio.fotoPerfil"
-              alt=""
+              [src]="miPortfolio.fotoUrl"
+              alt="foto de perfil"
               class="img-thumbnail rounded rounded-circle foto-perfil"
             />
             <!-- Botón  -->
@@ -25,9 +26,9 @@
         </div>
         <!-- Información personal -->
         <div class="col-auto align-self-end">
-          <h1 class="card-title">{{ miPortfolio.nombre }}</h1>
+          <h1 class="card-title">{{miPortfolio.apellido}}, {{ miPortfolio.nombre }}</h1>
           <h3 class="card-subtitle mb-2 text-muted">
-            {{ miPortfolio.posicion }}
+            {{ miPortfolio.profesion }}
           </h3>
           <p class="card-text fs-4">{{ miPortfolio.ubicacion }}</p>
         </div>

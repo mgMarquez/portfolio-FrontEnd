@@ -8,8 +8,15 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { AptitudesComponent } from './components/aptitudes/aptitudes.component';
 import { LogrosComponent } from './components/logros/logros.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { MenuNavegacionComponent } from './components/menu-navegacion/menu-navegacion.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { AppRoutingModule } from './app-routing.module';
+import { PortfolioService } from './services/portfolio.service';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -20,13 +27,19 @@ import { MenuNavegacionComponent } from './components/menu-navegacion/menu-naveg
     EducacionComponent,
     AptitudesComponent,
     LogrosComponent,
-    MenuNavegacionComponent
+    MenuNavegacionComponent,
+    LoginComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PortfolioService,
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,7 @@
         <i class="fa-solid fa-plus"></i>
       </button>
     </h4>
+    <!-- ngFor  -->
     <div class="row" *ngFor="let experiencia of experienciaList">
       <div class="col-2 text-muted text-center align-self-center">
         {{experiencia.inicio}} - {{experiencia.fin}}
@@ -14,7 +15,7 @@
       <div class="col">
         <ul class="list-unstyled">
           <li class="h4">{{experiencia.posicion}}</li>
-          <li><em>{{experiencia.compania}} - {{experiencia.modo}}</em></li>
+          <li><em>{{experiencia.compania}}</em></li>
           <li class="text-muted">
             {{experiencia.descripcion}}
           </li>

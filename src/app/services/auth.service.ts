@@ -23,6 +23,10 @@ export class AuthService {
     }))
   }
 
+  CerrarSesion(): void {
+    sessionStorage.removeItem('currentUser');
+  }
+
   get UsuarioAutenticado() {
     return this.currentUserSubject.value;
   }

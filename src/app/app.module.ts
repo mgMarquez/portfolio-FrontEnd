@@ -29,13 +29,14 @@ import { InterceptorService } from './services/interceptor.service';
     LogrosComponent,
     MenuNavegacionComponent,
     LoginComponent,
-    PortfolioComponent
+    PortfolioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [PortfolioService,
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},

@@ -8,37 +8,100 @@
         <div class="col-auto align-self-center">
           <!-- Foto de perfil con botón -->
           <div class="position-relative">
-            <img
-              [src]="persona.fotoUrl"
-              alt="foto de perfil"
-              class="img-thumbnail rounded rounded-circle foto-perfil"
-            />
+            <img [src]="persona.fotoUrl" alt="foto de perfil"
+              class="img-thumbnail rounded rounded-circle foto-perfil" />
             <!-- Botón  -->
             <div class="position-absolute bottom-0 end-0">
-              <button
-                type="button"
-                class="btn btn-secondary btn-sm rounded-circle shadow"
-              >
+              <!--               <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow">
                 <i class="fa-solid fa-pencil"></i>
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
         <!-- Información personal -->
         <div class="col-auto align-self-end">
-          <h1 class="card-title">{{persona.apellido}}, {{ persona.nombre }}</h1>
+          <h1 class="card-title">
+            {{ persona.apellido }}, {{ persona.nombre }}
+          </h1>
           <h3 class="card-subtitle mb-2 text-muted">
             {{ persona.profesion }}
           </h3>
           <p class="card-text fs-4">{{ persona.ubicacion }}</p>
         </div>
         <div class="col-auto align-self-end">
-          <button
-            type="button"
-            class="btn btn-secondary btn-sm rounded-circle shadow"
-          >
+          <!--   <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow">
+            <i class="fa-solid fa-pencil"></i>
+          </button> -->
+          <!-- botón modal editar -->
+          <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow" data-bs-toggle="modal"
+            data-bs-target="#modalPersona">
             <i class="fa-solid fa-pencil"></i>
           </button>
+          <!-- modal editar -->
+          <div class="modal modal-lg fade" id="modalPersona" tabindex="-1" aria-labelledby="personaModalLabel"
+            aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header bg-primary bg-gradient text-white">
+                  <h1 class="modal-title fs-5" id="personaModalLabel">
+                    Persona
+                  </h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-light">
+                  <!-- form persona-->
+                  <form>
+                    <div class="row g-2">
+                      <div class="col-6">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="nombreInput" placeholder="nombre" />
+                          <label for="nombreInput">Nombre</label>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="apellidoInput" placeholder="apellido" />
+                          <label for="apellidoInput">Apellido</label>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="profesionInput" placeholder="profesion" />
+                          <label for="profesionInput">Profesion</label>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="ubicacionInput" placeholder="ubicacion" />
+                          <label for="ubicacionInput">Ubicacion</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="fotoUrlInput" placeholder="fotoUrl" />
+                          <label for="fotoUrlInput">URL Foto</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="bannerURLInput" placeholder="bannerURL" />
+                          <label for="bannerURLInput">URL Banner</label>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <!-- fin de form -->
+                </div>
+                <div class="modal-footer bg-secondary bg-opacity-25">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                  <button type="button" class="btn btn-success">Guardar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- fin modal -->
         </div>
       </div>
     </div>

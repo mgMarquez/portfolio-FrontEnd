@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
+import { ProyectoDTO } from '../../dto/proyecto-dto';
 
 @Component({
   selector: 'app-logros',
@@ -7,7 +8,7 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./logros.component.css']
 })
 export class LogrosComponent implements OnInit {
-  logrosList:any;
+  logrosList!: ProyectoDTO[];
   constructor(private datosPorfolio:PortfolioService) { }
 
   ngOnInit(): void {

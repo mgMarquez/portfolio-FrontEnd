@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
+import { TecnologiaDTO } from '../../dto/tecnologia-dto';
 
 @Component({
   selector: 'app-aptitudes',
@@ -7,7 +8,7 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./aptitudes.component.css']
 })
 export class AptitudesComponent implements OnInit {
-  aptitudesList: any;
+  aptitudesList!: TecnologiaDTO[];
   constructor(private datosPorfolio:PortfolioService) { }
 
   ngOnInit(): void {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
+import { PersonaDTO } from '../../dto/persona-dto';
 
 @Component({
   selector: 'app-encabezado',
@@ -7,13 +8,12 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
-  miPortfolio: any;
+  persona!: PersonaDTO;
   constructor(private datosPorfolio:PortfolioService) { }
 
   ngOnInit(): void {
     this.datosPorfolio.obtenerDatos().subscribe(data => {
-      ///console.log("Datos personales" + JSON.stringify(data));
-      this.miPortfolio = data.persona;
+      this.persona = data.persona;
     });
   }
 

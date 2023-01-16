@@ -48,6 +48,7 @@ export class EncabezadoComponent implements OnInit {
     console.log(copiaPersona);
     this.datosPorfolio.guardarPersona(copiaPersona).subscribe(data => {
       console.log(data);
+      this.persona = data;
     })
   }
 }

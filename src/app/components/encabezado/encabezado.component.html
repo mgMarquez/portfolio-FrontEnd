@@ -1,6 +1,8 @@
 <!-- Perfil -->
+
 <div class="card m-2 shadow">
   <!-- Imagen fondo de perfil -->
+  
   <img [src]="persona.bannerUrl" class="card-img-top" alt="..." />
   <div class="card-body">
     <div class="container marco-perfil">
@@ -34,7 +36,7 @@
           </button> -->
           <!-- botón modal editar -->
           <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow" data-bs-toggle="modal"
-            data-bs-target="#modalPersona">
+            data-bs-target="#modalPersona" (click)="onEditar()">
             <i class="fa-solid fa-pencil"></i>
           </button>
           <!-- modal editar -->
@@ -50,41 +52,42 @@
                 </div>
                 <div class="modal-body bg-light">
                   <!-- form persona-->
-                  <form>
+                  
+                  <form [formGroup]="form">
                     <div class="row g-2">
                       <div class="col-6">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="nombreInput" placeholder="nombre" />
+                          <input type="text" class="form-control" id="nombreInput" placeholder="nombre" formControlName="nombre"/>
                           <label for="nombreInput">Nombre</label>
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="apellidoInput" placeholder="apellido" />
+                          <input type="text" class="form-control" id="apellidoInput" placeholder="apellido" formControlName="apellido"/>
                           <label for="apellidoInput">Apellido</label>
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="profesionInput" placeholder="profesion" />
+                          <input type="text" class="form-control" id="profesionInput" placeholder="profesion" formControlName="profesion"/>
                           <label for="profesionInput">Profesion</label>
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="ubicacionInput" placeholder="ubicacion" />
+                          <input type="text" class="form-control" id="ubicacionInput" placeholder="ubicacion" formControlName="ubicacion"/>
                           <label for="ubicacionInput">Ubicacion</label>
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="fotoUrlInput" placeholder="fotoUrl" />
+                          <input type="text" class="form-control" id="fotoUrlInput" placeholder="fotoUrl" formControlName="fotoUrl"/>
                           <label for="fotoUrlInput">URL Foto</label>
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="bannerURLInput" placeholder="bannerURL" />
+                          <input type="text" class="form-control" id="bannerURLInput" placeholder="bannerURL" formControlName="bannerUrl"/>
                           <label for="bannerURLInput">URL Banner</label>
                         </div>
                       </div>

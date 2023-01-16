@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { PersonaDTO } from '../../dto/persona-dto';
 
@@ -14,7 +13,8 @@ export class EncabezadoComponent implements OnInit {
   prueba: string = 'prueba';
   form!: FormGroup;
 
-  constructor(private datosPorfolio:PortfolioService, private FormBuilder:FormBuilder, private autenticacionServicio:AuthService) { }
+  constructor(private datosPorfolio:PortfolioService, 
+    private FormBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.form = this.FormBuilder.group({

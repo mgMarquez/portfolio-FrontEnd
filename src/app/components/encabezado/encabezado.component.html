@@ -3,7 +3,7 @@
 <div class="card m-2 shadow">
   <!-- Imagen fondo de perfil -->
   
-  <img [src]="persona.bannerUrl" class="card-img-top" alt="..." />
+  <img [src]="persona.bannerUrl" class="card-img-top" alt="Imagen de fondo de perfil" />
   <div class="card-body">
     <div class="container marco-perfil">
       <div class="row justify-content-start">
@@ -99,7 +99,7 @@
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                     Cerrar
                   </button>
-                  <button type="button" class="btn btn-success">Guardar</button>
+                  <button type="button" class="btn btn-success" (click)="onSubmit()">Guardar</button>
                 </div>
               </div>
             </div>

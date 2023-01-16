@@ -1,18 +1,18 @@
 export class PersonaDTO {
-  id: number;
-  nombre: string;
-  apellido: string;
-  fechaNac: string
-  profesion: string;
-  nacionalidad: string;
-  ubicacion: string;
-  acercaDe: string;
-  email: string;
-  telefono: string;
-  fotoUrl: string;
-  bannerUrl: string;
+  id: number = 0;
+  nombre: string = '';
+  apellido: string = '';
+  fechaNac: string = ''
+  profesion: string = '';
+  nacionalidad: string = '';
+  ubicacion: string = '';
+  acercaDe: string = '';
+  email: string = '';
+  telefono: string = '';
+  fotoUrl: string = '';
+  bannerUrl: string = '';
 
-  constructor(
+/*   constructor(
     id: number,
     nombre: string,
     apellido: string,
@@ -38,5 +38,5 @@ export class PersonaDTO {
     this.telefono = telefono;
     this.fotoUrl = fotoUrl;
     this.bannerUrl = bannerUrl;
-  }
+  } */
 }

@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EducacionComponent implements OnInit {
   educacionList: EducacionDTO[] = [];
   form!: FormGroup;
+  modoEdicion: boolean = false;
 
   constructor(
     private datosPortfolio: PortfolioService,
@@ -36,15 +37,41 @@ export class EducacionComponent implements OnInit {
 
   onEditar(educacionDTO: EducacionDTO): void {
     this.form.patchValue(educacionDTO);
+    this.modoEdicion = true;
   }
 
   onSubmit(): void {
+    if (this.modoEdicion) {
+      this.editarEducacion();
+    } else {
+      this.guardarEducacion();
+    }
+  }
+
+  private editarEducacion(): void {
     let educacionForm: EducacionDTO = this.form.value;
 
     let idEducacion: number = educacionForm.id;
-    this.datosPortfolio.guardarEducacion(educacionForm, idEducacion).subscribe((data) => {
-      this.educacionList = this.educacionList
-        .map(edu => edu.id !== idEducacion ? edu : data);
+    this.datosPortfolio
+      .guardarEducacion(educacionForm, idEducacion)
+      .subscribe((data) => {
+        this.educacionList = this.educacionList.map((edu) =>
+          edu.id !== idEducacion ? edu : data
+        );
+      });
+  }
+
+  private guardarEducacion(): void {
+    let nuevaEducacion: EducacionDTO = this.form.value;
+    console.log(nuevaEducacion);
+    this.datosPortfolio.nuevaEducacion(nuevaEducacion).subscribe((data) => {
+      console.log(data);
+      this.educacionList.push(data);
     });
+  }
+
+  onAgregar(): void {
+    this.modoEdicion = false;
+    this.form.reset();
   }
 }

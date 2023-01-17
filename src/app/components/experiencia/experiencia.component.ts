@@ -11,7 +11,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ExperienciaComponent implements OnInit {
   experienciaList!: ExperienciaDTO[];
   form!: FormGroup;
-  experiencia: ExperienciaDTO = new ExperienciaDTO();
   modoEdicion: boolean = false;
 
   constructor(
@@ -64,11 +63,9 @@ export class ExperienciaComponent implements OnInit {
 
   private guardarExperiencia(): void {
     let nuevaExperiencia: ExperienciaDTO = this.form.value;
-    this.datosPortfolio
-      .nuevaExperiencia(nuevaExperiencia)
-      .subscribe((data) => {
-        this.experienciaList.push(data);
-      });
+    this.datosPortfolio.nuevaExperiencia(nuevaExperiencia).subscribe((data) => {
+      this.experienciaList.push(data);
+    });
   }
 
   onAgregar(): void {

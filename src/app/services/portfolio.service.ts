@@ -9,37 +9,78 @@ import { TecnologiaDTO } from '../dto/tecnologia-dto';
 import { ProyectoDTO } from '../dto/proyecto-dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PortfolioService {
-  url:string = "https://portfolio-mgmarquez.koyeb.app/api/portfolio";
-  constructor(private http:HttpClient) { }
+  url: string = 'https://portfolio-mgmarquez.koyeb.app/api/portfolio';
+  constructor(private http: HttpClient) {}
 
-  obtenerDatos() : Observable<PortfolioDTO>{
-    return this.http.get<PortfolioDTO>(this.url+"/personas/1");
+  obtenerDatos(): Observable<PortfolioDTO> {
+    return this.http.get<PortfolioDTO>(this.url + '/personas/1');
   }
 
   guardarPersona(personaActualizada: PersonaDTO): Observable<any> {
-    return this.http.put<any>("https://portfolio-mgmarquez.koyeb.app/api/personas/1", personaActualizada);
+    return this.http.put<any>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1',
+      personaActualizada
+    );
   }
 
-  guardarExperiencia(experienciaActualizada: ExperienciaDTO, idExperiencia: number): Observable<ExperienciaDTO> {
-    return this.http.put<ExperienciaDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/" + idExperiencia, experienciaActualizada);
+  guardarExperiencia(
+    experienciaActualizada: ExperienciaDTO,
+    idExperiencia: number
+  ): Observable<ExperienciaDTO> {
+    return this.http.put<ExperienciaDTO>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/' +
+        idExperiencia,
+      experienciaActualizada
+    );
   }
 
-  nuevaExperiencia(experiencia: ExperienciaDTO): Observable<ExperienciaDTO> { 
-    return this.http.post<ExperienciaDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/", experiencia);
+  nuevaExperiencia(experiencia: ExperienciaDTO): Observable<ExperienciaDTO> {
+    return this.http.post<ExperienciaDTO>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/',
+      experiencia
+    );
   }
 
-  guardarEducacion(educacionActualizada: EducacionDTO, idEducacion: number): Observable<EducacionDTO> {
-    return this.http.put<EducacionDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/" + idEducacion, educacionActualizada);
+  guardarEducacion(
+    educacionActualizada: EducacionDTO,
+    idEducacion: number
+  ): Observable<EducacionDTO> {
+    return this.http.put<EducacionDTO>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/' +
+        idEducacion,
+      educacionActualizada
+    );
   }
 
-  guardarTecnologia(tecnologiaActualizada: TecnologiaDTO, idTecnologia: number): Observable<TecnologiaDTO> {
-    return this.http.put<TecnologiaDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/tecnologias/" + idTecnologia, tecnologiaActualizada);
+  nuevaEducacion(educacion: EducacionDTO): Observable<EducacionDTO> {
+    return this.http.post<EducacionDTO>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/',
+      educacion
+    );
   }
 
-  guardarProyecto(proyectoActualizado: ProyectoDTO, idProyecto: number): Observable<ProyectoDTO> {
-    return this.http.put<ProyectoDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/proyectos/" + idProyecto, proyectoActualizado);
+  guardarTecnologia(
+    tecnologiaActualizada: TecnologiaDTO,
+    idTecnologia: number
+  ): Observable<TecnologiaDTO> {
+    return this.http.put<TecnologiaDTO>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/tecnologias/' +
+        idTecnologia,
+      tecnologiaActualizada
+    );
+  }
+
+  guardarProyecto(
+    proyectoActualizado: ProyectoDTO,
+    idProyecto: number
+  ): Observable<ProyectoDTO> {
+    return this.http.put<ProyectoDTO>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/proyectos/' +
+        idProyecto,
+      proyectoActualizado
+    );
   }
 }

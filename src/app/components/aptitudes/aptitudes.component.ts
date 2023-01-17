@@ -69,4 +69,12 @@ export class AptitudesComponent implements OnInit {
     this.modoEdicion = false;
     this.form.reset();
   }
+
+  onEliminar(idTecnologiia: number): void {
+    this.datosPortfolio.eliminarTecnologia(idTecnologiia).subscribe((data) => {
+      this.tecnologiaList = this.tecnologiaList.filter(
+        (tec) => tec.id !== idTecnologiia
+      );
+    });
+  }
 }

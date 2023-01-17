@@ -2,7 +2,7 @@
 <div class="card m-2 shadow">
   <div class="card-body">
     <h4 class="card-title">
-      Experiencias      
+      Experiencias
       <!-- botón modal agregar -->
       <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow" data-bs-toggle="modal"
         data-bs-target="#modalExperiencia" (click)="onAgregar()">
@@ -11,8 +11,17 @@
     </h4>
     <!-- ngFor  -->
     <div class="row" *ngFor="let experiencia of experienciaList">
-      <div class="col-2 text-muted text-center align-self-center">
-        {{experiencia.inicio}} - {{experiencia.fin}}
+      <div class="col-2 m-auto">
+        <div class="row">
+          <img
+                [src]="experiencia.imgUrl"
+                class="img-fluid"
+                alt="imagen de experiencia"
+              />
+        </div>
+        <div class="row">
+          <span class="text-center text-muted">{{experiencia.inicio}} - {{experiencia.fin}}</span>
+        </div>
       </div>
       <div class="col">
         <ul class="list-unstyled">

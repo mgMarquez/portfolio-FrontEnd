@@ -11,6 +11,7 @@ import { ProyectoDTO } from '../../dto/proyecto-dto';
 export class LogrosComponent implements OnInit {
   proyectoList: ProyectoDTO[] = [];
   form!: FormGroup;
+  modoEdicion: boolean = false;
 
   constructor(
     private datosPortfolio: PortfolioService,
@@ -33,9 +34,18 @@ export class LogrosComponent implements OnInit {
 
   onEditar(proyectoDTO: ProyectoDTO): void {
     this.form.patchValue(proyectoDTO);
+    this.modoEdicion = true;
   }
 
   onSubmit(): void {
+    if(this.modoEdicion) {
+      this.editarProyecto();
+    } else {
+      this.guardarProyecto();
+    }
+  }
+
+  private editarProyecto(): void {
     let proyectoForm: ProyectoDTO = this.form.value;
 
     let idProyecto: number = proyectoForm.id;
@@ -44,5 +54,17 @@ export class LogrosComponent implements OnInit {
       this.proyectoList = this.proyectoList
         .map(proy => proy.id !== idProyecto ? proy : data);
     });
+  }
+
+  private guardarProyecto(): void {
+    let nuevaProyecto: ProyectoDTO = this.form.value;
+    this.datosPortfolio.nuevoProyecto(nuevaProyecto).subscribe((data) => {
+      this.proyectoList.push(data);
+    });
+  }
+
+  onAgregar(): void {
+    this.modoEdicion = false;
+    this.form.reset();
   }
 }

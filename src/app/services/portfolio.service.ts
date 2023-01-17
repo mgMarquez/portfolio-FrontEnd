@@ -90,4 +90,11 @@ export class PortfolioService {
       proyectoActualizado
     );
   }
+
+  nuevoProyecto(proyecto: ProyectoDTO): Observable<ProyectoDTO> {
+    return this.http.post<ProyectoDTO>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/proyectos/',
+      proyecto
+    );
+  }
 }

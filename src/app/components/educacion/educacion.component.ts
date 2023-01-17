@@ -74,4 +74,13 @@ export class EducacionComponent implements OnInit {
     this.modoEdicion = false;
     this.form.reset();
   }
+
+  onEliminar(idEducacion: number): void {
+    this.datosPortfolio.eliminarEducacion(idEducacion).subscribe((data) => {
+      console.log(data);
+      this.educacionList = this.educacionList.filter(
+        (edu) => edu.id !== idEducacion
+      );
+    });
+  }
 }

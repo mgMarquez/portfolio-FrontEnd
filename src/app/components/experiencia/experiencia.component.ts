@@ -72,4 +72,12 @@ export class ExperienciaComponent implements OnInit {
     this.modoEdicion = false;
     this.form.reset();
   }
+
+  onEliminar(idExperiencia: number): void {
+    this.datosPortfolio.eliminarExperiencia(idExperiencia).subscribe((data) => {
+      this.experienciaList = this.experienciaList.filter(
+        (exp) => exp.id !== idExperiencia
+      );
+    });
+  }
 }

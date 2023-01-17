@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PortfolioDTO } from '../dto/portfolio-dto';
 import { PersonaDTO } from '../dto/persona-dto';
+import { ExperienciaDTO } from '../dto/experiencia-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class PortfolioService {
 
   guardarPersona(personaActualizada: PersonaDTO): Observable<any> {
     return this.http.put<any>("https://portfolio-mgmarquez.koyeb.app/api/personas/1", personaActualizada);
+  }
+
+  guardarExperiencia(experienciaActualizada: ExperienciaDTO, idExperiencia: number): Observable<ExperienciaDTO> {
+    return this.http.put<ExperienciaDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/" + idExperiencia, experienciaActualizada);
   }
 }

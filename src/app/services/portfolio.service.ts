@@ -5,6 +5,7 @@ import { PortfolioDTO } from '../dto/portfolio-dto';
 import { PersonaDTO } from '../dto/persona-dto';
 import { ExperienciaDTO } from '../dto/experiencia-dto';
 import { EducacionDTO } from '../dto/educacion-dto';
+import { TecnologiaDTO } from '../dto/tecnologia-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,9 @@ export class PortfolioService {
 
   guardarEducacion(educacionActualizada: EducacionDTO, idEducacion: number): Observable<EducacionDTO> {
     return this.http.put<EducacionDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/" + idEducacion, educacionActualizada);
+  }
+
+  guardarTecnologia(tecnologiaActualizada: TecnologiaDTO, idTecnologia: number): Observable<TecnologiaDTO> {
+    return this.http.put<TecnologiaDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/tecnologias/" + idTecnologia, tecnologiaActualizada);
   }
 }

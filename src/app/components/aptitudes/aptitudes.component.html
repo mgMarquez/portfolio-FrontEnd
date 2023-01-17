@@ -7,26 +7,70 @@
         <i class="fa-solid fa-plus"></i>
       </button>
     </h4>
-    <div class="row m-4 text-center" *ngFor="let aptitud of aptitudesList">
+    <div class="row m-4 text-center" *ngFor="let tecnologia of tecnologiaList">
       <div class="col-11">
         <ul class="list-unstyled">
-          <li class="h5">{{aptitud.nombre}}</li>
+          <li class="h5">{{tecnologia.nombre}}</li>
           <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated"
-              role="progressbar"
-              [ngStyle]="{'width': aptitud.progreso + '%'}"
-              [attr.aria-valuenow]="aptitud.progreso"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+              [ngStyle]="{'width': tecnologia.progreso + '%'}" [attr.aria-valuenow]="tecnologia.progreso" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
         </ul>
       </div>
       <div class="col align-self-center">
-        <button type="button" class="btn btn-secondary btn-sm rounded-circle">
+        <!-- botón modal editar -->
+        <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow" data-bs-toggle="modal"
+          data-bs-target="#modalTecnologia" (click)="onEditar(tecnologia)">
           <i class="fa-solid fa-pencil"></i>
         </button>
+        <!-- modal editar -->
+        <div class="modal modal-lg fade" id="modalTecnologia" tabindex="-1" aria-labelledby="tecnologiaModalLabel"
+          aria-hidden="true" data-bs-backdrop="static">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header bg-primary bg-gradient text-white">
+                <h1 class="modal-title fs-5" id="tecnologiaModalLabel">
+                  Tecnologías
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body bg-light">
+                <!-- form tecnologia de mi-->
+                <form [formGroup]="form">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nombreInput" placeholder="nombre"
+                      formControlName="nombre" />
+                    <label for="nombreInput">Nombre</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <textarea class="form-control" id="descripcionInput" placeholder="descripcion"
+                      formControlName="descripcion" style="height: 100px"></textarea>
+                    <label for="descripcionInput">Descripcion</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="imgUrlInput" placeholder="imgUrl"
+                      formControlName="imgUrl" />
+                    <label for="imgUrlInput">URL imagen</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="progresoInput" placeholder="progreso" formControlName="progreso" />
+                    <label for="progresoInput">Progreso</label>
+                  </div>
+                </form>
+                <!-- fin de form -->
+              </div>
+              <div class="modal-footer bg-secondary bg-opacity-25">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                  Cerrar
+                </button>
+                <button type="button" class="btn btn-success" (click)="onSubmit()"
+                  data-bs-dismiss="modal">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- fin modal -->
         <button type="button" class="btn btn-secondary btn-sm rounded-circle">
           <i class="fa-solid fa-trash"></i>
         </button>

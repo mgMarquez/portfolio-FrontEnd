@@ -27,6 +27,10 @@ export class PortfolioService {
     return this.http.put<ExperienciaDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/" + idExperiencia, experienciaActualizada);
   }
 
+  nuevaExperiencia(experiencia: ExperienciaDTO): Observable<ExperienciaDTO> { 
+    return this.http.post<ExperienciaDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/", experiencia);
+  }
+
   guardarEducacion(educacionActualizada: EducacionDTO, idEducacion: number): Observable<EducacionDTO> {
     return this.http.put<EducacionDTO>("https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/" + idEducacion, educacionActualizada);
   }

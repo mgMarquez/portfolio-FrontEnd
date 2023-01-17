@@ -12,6 +12,7 @@ export class ExperienciaComponent implements OnInit {
   experienciaList!: ExperienciaDTO[];
   form!: FormGroup;
   experiencia: ExperienciaDTO = new ExperienciaDTO();
+  modoEdicion: boolean = false;
 
   constructor(
     private datosPortfolio: PortfolioService,
@@ -37,15 +38,41 @@ export class ExperienciaComponent implements OnInit {
 
   onEditar(experienciaDTO: ExperienciaDTO): void {
     this.form.patchValue(experienciaDTO);
+    this.modoEdicion = true;
   }
 
   onSubmit(): void {
+    if (this.modoEdicion) {
+      this.editarExperiencia();
+    } else {
+      this.guardarExperiencia();
+    }
+  }
+
+  private editarExperiencia(): void {
     let experienciaForm: ExperienciaDTO = this.form.value;
 
     let idExperiencia: number = experienciaForm.id;
-    this.datosPortfolio.guardarExperiencia(experienciaForm, idExperiencia).subscribe((data) => {
-      this.experienciaList = this.experienciaList
-        .map(exp => exp.id !== idExperiencia ? exp : data);
-    });
+    this.datosPortfolio
+      .guardarExperiencia(experienciaForm, idExperiencia)
+      .subscribe((data) => {
+        this.experienciaList = this.experienciaList.map((exp) =>
+          exp.id !== idExperiencia ? exp : data
+        );
+      });
+  }
+
+  private guardarExperiencia(): void {
+    let nuevaExperiencia: ExperienciaDTO = this.form.value;
+    this.datosPortfolio
+      .nuevaExperiencia(nuevaExperiencia)
+      .subscribe((data) => {
+        this.experienciaList.push(data);
+      });
+  }
+
+  onAgregar(): void {
+    this.modoEdicion = false;
+    this.form.reset();
   }
 }

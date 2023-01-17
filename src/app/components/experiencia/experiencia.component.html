@@ -2,8 +2,10 @@
 <div class="card m-2 shadow">
   <div class="card-body">
     <h4 class="card-title">
-      Experiencias
-      <button type="button" class="btn btn-secondary btn-sm rounded-circle">
+      Experiencias      
+      <!-- botón modal agregar -->
+      <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow" data-bs-toggle="modal"
+        data-bs-target="#modalExperiencia" (click)="onAgregar()">
         <i class="fa-solid fa-plus"></i>
       </button>
     </h4>
@@ -42,31 +44,37 @@
                 <!-- form experiencia de mi-->
                 <form [formGroup]="form">
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="posicionInput" placeholder="posicion" formControlName="posicion"/>
+                    <input type="text" class="form-control" id="posicionInput" placeholder="posicion"
+                      formControlName="posicion" />
                     <label for="posicionInput">Posicion</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="companiaInput" placeholder="compania" formControlName="compania"/>
+                    <input type="text" class="form-control" id="companiaInput" placeholder="compania"
+                      formControlName="compania" />
                     <label for="companiaInput">Compañia</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <textarea class="form-control" id="descripcionInput" placeholder="descripcion" formControlName="descripcion" style="height: 100px"></textarea>
+                    <textarea class="form-control" id="descripcionInput" placeholder="descripcion"
+                      formControlName="descripcion" style="height: 100px"></textarea>
                     <label for="descripcionInput">Descripcion</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="imgUrlInput" placeholder="imgUrl" formControlName="imgUrl"/>
+                    <input type="text" class="form-control" id="imgUrlInput" placeholder="imgUrl"
+                      formControlName="imgUrl" />
                     <label for="imgUrlInput">URL imagen</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="webUrlInput" placeholder="webUrl" formControlName="webUrl"/>
+                    <input type="text" class="form-control" id="webUrlInput" placeholder="webUrl"
+                      formControlName="webUrl" />
                     <label for="webUrlInput">URL web</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="inicioInput" placeholder="inicio" formControlName="inicio"/>
+                    <input type="text" class="form-control" id="inicioInput" placeholder="inicio"
+                      formControlName="inicio" />
                     <label for="inicioInput">Inicio</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="finInput" placeholder="fin" formControlName="fin"/>
+                    <input type="text" class="form-control" id="finInput" placeholder="fin" formControlName="fin" />
                     <label for="finInput">Finalizacion</label>
                   </div>
                 </form>

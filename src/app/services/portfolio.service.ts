@@ -73,6 +73,13 @@ export class PortfolioService {
     );
   }
 
+  nuevaTecnologia(tecnologia: TecnologiaDTO): Observable<TecnologiaDTO> {
+    return this.http.post<TecnologiaDTO>(
+      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/tecnologias/',
+      tecnologia
+    );
+  }
+
   guardarProyecto(
     proyectoActualizado: ProyectoDTO,
     idProyecto: number

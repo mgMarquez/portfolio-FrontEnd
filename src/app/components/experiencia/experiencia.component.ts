@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./experiencia.component.css'],
 })
 export class ExperienciaComponent implements OnInit {
-  experienciaList!: ExperienciaDTO[];
+  experienciaList: ExperienciaDTO[] = [];
   form!: FormGroup;
   modoEdicion: boolean = false;
 

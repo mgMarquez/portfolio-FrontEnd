@@ -32,9 +32,67 @@
         </ul>
       </div>
       <div class="col-1 m-auto">
-        <button type="button" class="btn btn-secondary btn-sm rounded-circle">
+        <!-- botón modal editar -->
+        <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow" data-bs-toggle="modal"
+          data-bs-target="#modalEducacion" (click)="onEditar(educacion)">
           <i class="fa-solid fa-pencil"></i>
         </button>
+        <!-- modal editar -->
+        <div class="modal modal-lg fade" id="modalEducacion" tabindex="-1" aria-labelledby="educacionModalLabel"
+          aria-hidden="true" data-bs-backdrop="static">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header bg-primary bg-gradient text-white">
+                <h1 class="modal-title fs-5" id="educacionModalLabel">
+                  Educación
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body bg-light">
+                <!-- form educacion de mi-->
+                <form [formGroup]="form">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="tituloInput" placeholder="titulo" formControlName="titulo"/>
+                    <label for="tituloInput">Titulo</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="escuelaInput" placeholder="escuela" formControlName="escuela"/>
+                    <label for="escuelaInput">Escuela</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <textarea class="form-control" id="descripcionInput" placeholder="descripcion" formControlName="descripcion" style="height: 100px"></textarea>
+                    <label for="descripcionInput">Descripcion</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="imgUrlInput" placeholder="imgUrl" formControlName="imgUrl"/>
+                    <label for="imgUrlInput">URL imagen</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="webUrlInput" placeholder="webUrl" formControlName="webUrl"/>
+                    <label for="webUrlInput">URL web</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="inicioInput" placeholder="inicio" formControlName="inicio"/>
+                    <label for="inicioInput">Inicio</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="finInput" placeholder="fin" formControlName="fin"/>
+                    <label for="finInput">Finalizacion</label>
+                  </div>
+                </form>
+                <!-- fin de form -->
+              </div>
+              <div class="modal-footer bg-secondary bg-opacity-25">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                  Cerrar
+                </button>
+                <button type="button" class="btn btn-success" (click)="onSubmit()"
+                  data-bs-dismiss="modal">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- fin modal -->
         <button type="button" class="btn btn-secondary btn-sm rounded-circle">
           <i class="fa-solid fa-trash"></i>
         </button>

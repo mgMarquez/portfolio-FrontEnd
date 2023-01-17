@@ -67,4 +67,12 @@ export class LogrosComponent implements OnInit {
     this.modoEdicion = false;
     this.form.reset();
   }
+
+  onEliminar(idProyecto: number): void {
+    this.datosPortfolio.eliminarProyecto(idProyecto).subscribe((data) => {
+      this.proyectoList = this.proyectoList.filter(
+        (proy) => proy.id !== idProyecto
+      );
+    });
+  }
 }

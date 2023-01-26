@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { EducacionDTO } from '../../dto/educacion-dto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,17 +8,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css'],
 })
-export class EducacionComponent implements OnInit {
-  educacionList: EducacionDTO[] = [];
-  form!: FormGroup;
+export class EducacionComponent {
+  @Input() educacionList: EducacionDTO[] = [];
+  form: FormGroup;
   modoEdicion: boolean = false;
 
   constructor(
     private datosPortfolio: PortfolioService,
     private formBuilder: FormBuilder
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.form = this.formBuilder.group({
       id: [0, [Validators.required]],
       titulo: ['', [Validators.required]],
@@ -28,10 +26,6 @@ export class EducacionComponent implements OnInit {
       webUrl: ['', [Validators.required]],
       inicio: ['', [Validators.required]],
       fin: ['', [Validators.required]],
-    });
-
-    this.datosPortfolio.obtenerDatos().subscribe((data) => {
-      this.educacionList = data.educaciones;
     });
   }
 

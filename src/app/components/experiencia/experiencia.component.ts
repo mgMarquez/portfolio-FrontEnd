@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { ExperienciaDTO } from '../../dto/experiencia-dto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,17 +8,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './experiencia.component.html',
   styleUrls: ['./experiencia.component.css'],
 })
-export class ExperienciaComponent implements OnInit {
-  experienciaList: ExperienciaDTO[] = [];
-  form!: FormGroup;
+export class ExperienciaComponent {
+  @Input() experienciaList: ExperienciaDTO[] = [];
+  form: FormGroup;
   modoEdicion: boolean = false;
 
   constructor(
     private datosPortfolio: PortfolioService,
     private formBuilder: FormBuilder
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.form = this.formBuilder.group({
       id: [0, [Validators.required]],
       posicion: ['', [Validators.required]],
@@ -28,10 +26,6 @@ export class ExperienciaComponent implements OnInit {
       webUrl: ['', [Validators.required]],
       inicio: ['', [Validators.required]],
       fin: ['', [Validators.required]],
-    });
-
-    this.datosPortfolio.obtenerDatos().subscribe((data) => {
-      this.experienciaList = data.experiencias;
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { TecnologiaDTO } from '../../dto/tecnologia-dto';
@@ -8,27 +8,21 @@ import { TecnologiaDTO } from '../../dto/tecnologia-dto';
   templateUrl: './aptitudes.component.html',
   styleUrls: ['./aptitudes.component.css'],
 })
-export class AptitudesComponent implements OnInit {
-  tecnologiaList: TecnologiaDTO[] = [];
-  form!: FormGroup;
+export class AptitudesComponent {
+  @Input() tecnologiaList: TecnologiaDTO[] = [];
+  form: FormGroup;
   modoEdicion: boolean = false;
 
   constructor(
     private datosPortfolio: PortfolioService,
     private formBuilder: FormBuilder
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.form = this.formBuilder.group({
       id: [0, [Validators.required]],
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       imgUrl: ['', [Validators.required]],
       progreso: [0, [Validators.required]],
-    });
-
-    this.datosPortfolio.obtenerDatos().subscribe((data) => {
-      this.tecnologiaList = data.tecnologias;
     });
   }
 

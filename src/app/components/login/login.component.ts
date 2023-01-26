@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
               private ruta:Router) { 
     this.form = this.formBuilder.group(
         {
-          nombreUsuario:['', [Validators.required, Validators.minLength(3)]],
-          password:['', [Validators.required, Validators.minLength(3)]]
+          nombreUsuario:['', [Validators.required, Validators.minLength(5)]],
+          password:['', [Validators.required, Validators.minLength(5)]]
         }
       )
   }
@@ -29,15 +29,30 @@ export class LoginComponent implements OnInit {
     return this.form.get('nombreUsuario');
   }
 
+  get NombreUsuarioValid() {
+    return this.NombreUsuario?.touched && !this.NombreUsuario?.errors;
+  }
+
+  get NombreUsuarioInvalid() {
+    return this.NombreUsuario?.touched && this.NombreUsuario?.errors;
+  }
+
   get Password() {
     return this.form.get('password');
+  }
+
+  get PaswwordValid() {
+    return this.Password?.touched && !this.Password?.errors;
+  }
+
+  get PaswwordInvalid() {
+    return this.Password?.touched && this.Password?.errors;
   }
 
   onEnviar(event:Event) {
     event.preventDefault;
     this.autenticacionService.IniciarSesion(this.form.value)
-      .subscribe(data => {
-        //console.log("Data: " + JSON.stringify(data));
+      .subscribe(() => {
         this.ruta.navigate(['/portfolio']);
       })
   }

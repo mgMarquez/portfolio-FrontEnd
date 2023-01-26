@@ -1,49 +1,54 @@
-<section class="vh-100" style="background-color: #508bfc">
-  <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card shadow-2-strong" style="border-radius: 1rem">
-            <div class="card-body p-5 text-center">
-              <h3 class="mb-5">Iniciar sesion a mi portfolio</h3>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="typeEmailX-2">Usuario</label>
+<section class="login-bg vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-lg rounded-5 bg-light">
+          <div class="card-body p-5 text-center">
+            <h3 class="mb-5">Iniciar sesion a mi portfolio</h3>
+            <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+              <div class="form-floating mb-4">
                 <input
-                  type="email"
-                  id="typeEmailX-2"
-                  class="form-control form-control-lg"
+                  type="text"
+                  class="form-control form-control-lg bg-light"
+                  id="floatingUsuario"
+                  placeholder="usuario"
                   formControlName="nombreUsuario"
                   [ngClass]="{
-                    'is-invalid': NombreUsuario?.errors && NombreUsuario?.touched,
-                    'is-valid': !NombreUsuario?.errors && NombreUsuario?.touched
+                    'is-invalid': NombreUsuarioInvalid,
+                    'is-valid': NombreUsuarioValid
                   }"
                 />
-                <div *ngIf="NombreUsuario?.errors && NombreUsuario?.touched">
-                  <p *ngIf="NombreUsuario?.hasError('required')" class="text-danger">
+                <label for="floatingUsuario">Usuario</label>
+                <div *ngIf="NombreUsuarioInvalid">
+                  <p
+                    *ngIf="NombreUsuario?.hasError('required')"
+                    class="text-danger"
+                  >
                     El nombre de usuario es requerido.
                   </p>
-                  <p *ngIf="NombreUsuario?.hasError('nombreUsuario')" class="text-danger">
-                    El formato del nombre de usuario debe ser válido.
+                  <p
+                    *ngIf="NombreUsuario?.hasError('minlength')"
+                    class="text-danger"
+                  >
+                    El nombre de usuario debe ser de 5 o más caracteres.
                   </p>
                 </div>
               </div>
 
-              <div class="form-outline mb-4">
-                <label class="form-label" for="typePasswordX-2"
-                  >Contraseña</label
-                >
+              <div class="form-floating mb-4">
                 <input
                   type="password"
-                  id="typePasswordX-2"
-                  class="form-control form-control-lg"
+                  class="form-control form-control-lg bg-light"
+                  id="floatingPassword"
+                  placeholder="password"
                   formControlName="password"
                   [ngClass]="{
-                    'is-invalid': Password?.errors && Password?.touched,
-                    'is-valid': !Password?.errors && Password?.touched
+                    'is-invalid': PaswwordInvalid,
+                    'is-valid': PaswwordValid
                   }"
                 />
-                <div *ngIf="Password?.errors && Password?.touched">
+                <label for="floatingPassword">Contraseña</label>
+                <div *ngIf="PaswwordInvalid">
                   <p *ngIf="Password?.hasError('required')" class="text-danger">
                     La contraseña es requerida.
                   </p>
@@ -51,18 +56,22 @@
                     *ngIf="Password?.hasError('minlength')"
                     class="text-danger"
                   >
-                    La contraseña debe ser de 8 o más caracteres.
+                    La contraseña debe ser de 5 o más caracteres.
                   </p>
                 </div>
               </div>
 
-              <button class="btn btn-primary btn-lg btn-block" type="submit">
-                Login
+              <button
+                class="btn btn-primary btn-lg btn-block"
+                type="submit"
+                [disabled]="form.invalid"
+              >
+                Iniciar sesión
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </form>
+  </div>
 </section>

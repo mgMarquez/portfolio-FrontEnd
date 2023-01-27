@@ -26,31 +26,6 @@ export class PortfolioService {
     );
   }
 
-  guardarExperiencia(
-    experienciaActualizada: ExperienciaDTO,
-    idExperiencia: number
-  ): Observable<ExperienciaDTO> {
-    return this.http.put<ExperienciaDTO>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/' +
-        idExperiencia,
-      experienciaActualizada
-    );
-  }
-
-  nuevaExperiencia(experiencia: ExperienciaDTO): Observable<ExperienciaDTO> {
-    return this.http.post<ExperienciaDTO>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/',
-      experiencia
-    );
-  }
-
-  eliminarExperiencia(idExperiencia: number): Observable<any> {
-    return this.http.delete<any>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias/' +
-        idExperiencia
-    );
-  }
-
   guardarEducacion(
     educacionActualizada: EducacionDTO,
     idEducacion: number
@@ -72,7 +47,7 @@ export class PortfolioService {
   eliminarEducacion(idEducacion: number): Observable<any> {
     return this.http.delete<any>(
       'https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/' +
-      idEducacion
+        idEducacion
     );
   }
 
@@ -97,7 +72,7 @@ export class PortfolioService {
   eliminarTecnologia(idTecnologia: number): Observable<any> {
     return this.http.delete<any>(
       'https://portfolio-mgmarquez.koyeb.app/api/personas/1/tecnologias/' +
-      idTecnologia
+        idTecnologia
     );
   }
 
@@ -122,7 +97,7 @@ export class PortfolioService {
   eliminarProyecto(idProyecto: number): Observable<any> {
     return this.http.delete<any>(
       'https://portfolio-mgmarquez.koyeb.app/api/personas/1/proyectos/' +
-      idProyecto
+        idProyecto
     );
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PortfolioService } from 'src/app/services/portfolio.service';
 import { TecnologiaDTO } from '../../dto/tecnologia-dto';
+import { TecnologiaService } from '../../services/tecnologia.service';
 
 @Component({
   selector: 'app-aptitudes',
@@ -14,7 +14,7 @@ export class AptitudesComponent {
   modoEdicion: boolean = false;
 
   constructor(
-    private datosPortfolio: PortfolioService,
+    private tecnologiaService: TecnologiaService,
     private formBuilder: FormBuilder
   ) {
     this.form = this.formBuilder.group({
@@ -43,7 +43,7 @@ export class AptitudesComponent {
     let tecnologiaForm: TecnologiaDTO = this.form.value;
     let idTecnologia: number = tecnologiaForm.id;
 
-    this.datosPortfolio
+    this.tecnologiaService
       .guardarTecnologia(tecnologiaForm, idTecnologia)
       .subscribe((data) => {
         this.tecnologiaList = this.tecnologiaList.map((tec) =>
@@ -54,9 +54,11 @@ export class AptitudesComponent {
 
   private guardarTecnologia(): void {
     let nuevaTecnologia: TecnologiaDTO = this.form.value;
-    this.datosPortfolio.nuevaTecnologia(nuevaTecnologia).subscribe((data) => {
-      this.tecnologiaList.push(data);
-    });
+    this.tecnologiaService
+      .nuevaTecnologia(nuevaTecnologia)
+      .subscribe((data) => {
+        this.tecnologiaList.push(data);
+      });
   }
 
   onAgregar(): void {
@@ -65,10 +67,12 @@ export class AptitudesComponent {
   }
 
   onEliminar(idTecnologiia: number): void {
-    this.datosPortfolio.eliminarTecnologia(idTecnologiia).subscribe((data) => {
-      this.tecnologiaList = this.tecnologiaList.filter(
-        (tec) => tec.id !== idTecnologiia
-      );
-    });
+    this.tecnologiaService
+      .eliminarTecnologia(idTecnologiia)
+      .subscribe((data) => {
+        this.tecnologiaList = this.tecnologiaList.filter(
+          (tec) => tec.id !== idTecnologiia
+        );
+      });
   }
 }

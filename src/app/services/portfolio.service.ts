@@ -25,31 +25,6 @@ export class PortfolioService {
       personaActualizada
     );
   }
-  
-  guardarTecnologia(
-    tecnologiaActualizada: TecnologiaDTO,
-    idTecnologia: number
-  ): Observable<TecnologiaDTO> {
-    return this.http.put<TecnologiaDTO>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/tecnologias/' +
-        idTecnologia,
-      tecnologiaActualizada
-    );
-  }
-
-  nuevaTecnologia(tecnologia: TecnologiaDTO): Observable<TecnologiaDTO> {
-    return this.http.post<TecnologiaDTO>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/tecnologias/',
-      tecnologia
-    );
-  }
-
-  eliminarTecnologia(idTecnologia: number): Observable<any> {
-    return this.http.delete<any>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/tecnologias/' +
-        idTecnologia
-    );
-  }
 
   guardarProyecto(
     proyectoActualizado: ProyectoDTO,

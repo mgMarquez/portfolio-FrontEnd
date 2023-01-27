@@ -3,48 +3,78 @@
   <div class="card-body">
     <h4 class="card-title">
       Acerca de mi
+
       <!-- botón modal editar -->
-      <button type="button" class="btn btn-secondary btn-sm rounded-circle shadow" data-bs-toggle="modal"
-        data-bs-target="#modalAcercaDe" (click)="onEditar()">
+      <button
+        type="button"
+        class="btn btn-secondary btn-sm rounded-circle shadow"
+        data-bs-toggle="modal"
+        data-bs-target="#modalAcercaDe"
+        (click)="onEditar()"
+      >
         <i class="fa-solid fa-pencil"></i>
       </button>
-      <!-- modal editar -->
-      <div class="modal modal-lg fade" id="modalAcercaDe" tabindex="-1" aria-labelledby="acercaDeModalLabel"
-        aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header bg-primary bg-gradient text-white">
-              <h1 class="modal-title fs-5" id="acercaDeModalLabel">
-                Persona
-              </h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body bg-light">
-              <!-- form acerca de mi-->
+    </h4>
+    <!-- modal editar -->
+    <div
+      class="modal modal-lg fade"
+      id="modalAcercaDe"
+      tabindex="-1"
+      aria-labelledby="acercaDeModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary bg-gradient text-white">
+            <h1 class="modal-title fs-5" id="acercaDeModalLabel">Persona</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body bg-light">
+            <!-- form acerca de mi-->
 
-              <form [formGroup]="form">
-                <div class="form-floating mb-3">
-                  <textarea class="form-control" id="acercaDeInput" placeholder="acerca de mi"
-                    formControlName="acercaDe" style="height: 100px"></textarea>
-                  <label for="acercaDeInput">Acerca de mi</label>
-                </div>
-              </form>
-              <!-- fin de form -->
-            </div>
-            <div class="modal-footer bg-secondary bg-opacity-25">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                Cerrar
-              </button>
-              <button type="button" class="btn btn-success" (click)="onSubmit()"
-                data-bs-dismiss="modal">Guardar</button>
-            </div>
+            <form [formGroup]="form">
+              <div class="form-floating mb-3">
+                <textarea
+                  class="form-control"
+                  id="acercaDeInput"
+                  placeholder="acerca de mi"
+                  formControlName="acercaDe"
+                  style="height: 100px"
+                ></textarea>
+                <label for="acercaDeInput">Acerca de mi</label>
+              </div>
+            </form>
+            <!-- fin de form -->
+          </div>
+          <div class="modal-footer bg-secondary bg-opacity-25">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="onSubmit()"
+              data-bs-dismiss="modal"
+            >
+              Guardar
+            </button>
           </div>
         </div>
       </div>
-      <!-- fin modal -->
-    </h4>
+    </div>
+    <!-- fin modal -->
     <p class="card-text">
-      {{persona.acercaDe}}
+      {{ persona.acercaDe }}
     </p>
   </div>
 </div>

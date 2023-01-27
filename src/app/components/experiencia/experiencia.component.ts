@@ -1,24 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { ExperienciaDTO } from '../../dto/experiencia-dto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ExperienciaService } from '../../services/experiencia.service';
 
 @Component({
   selector: 'app-experiencia',
   templateUrl: './experiencia.component.html',
   styleUrls: ['./experiencia.component.css'],
 })
-export class ExperienciaComponent implements OnInit {
-  experienciaList: ExperienciaDTO[] = [];
-  form!: FormGroup;
+export class ExperienciaComponent {
+  @Input() experienciaList: ExperienciaDTO[] = [];
+  form: FormGroup;
   modoEdicion: boolean = false;
 
   constructor(
-    private datosPortfolio: PortfolioService,
+    private experienciaService: ExperienciaService,
     private formBuilder: FormBuilder
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.form = this.formBuilder.group({
       id: [0, [Validators.required]],
       posicion: ['', [Validators.required]],
@@ -28,10 +27,6 @@ export class ExperienciaComponent implements OnInit {
       webUrl: ['', [Validators.required]],
       inicio: ['', [Validators.required]],
       fin: ['', [Validators.required]],
-    });
-
-    this.datosPortfolio.obtenerDatos().subscribe((data) => {
-      this.experienciaList = data.experiencias;
     });
   }
 
@@ -52,7 +47,7 @@ export class ExperienciaComponent implements OnInit {
     let experienciaForm: ExperienciaDTO = this.form.value;
 
     let idExperiencia: number = experienciaForm.id;
-    this.datosPortfolio
+    this.experienciaService
       .guardarExperiencia(experienciaForm, idExperiencia)
       .subscribe((data) => {
         this.experienciaList = this.experienciaList.map((exp) =>
@@ -63,7 +58,7 @@ export class ExperienciaComponent implements OnInit {
 
   private guardarExperiencia(): void {
     let nuevaExperiencia: ExperienciaDTO = this.form.value;
-    this.datosPortfolio.nuevaExperiencia(nuevaExperiencia).subscribe((data) => {
+    this.experienciaService.nuevaExperiencia(nuevaExperiencia).subscribe((data) => {
       this.experienciaList.push(data);
     });
   }
@@ -74,7 +69,7 @@ export class ExperienciaComponent implements OnInit {
   }
 
   onEliminar(idExperiencia: number): void {
-    this.datosPortfolio.eliminarExperiencia(idExperiencia).subscribe((data) => {
+    this.experienciaService.eliminarExperiencia(idExperiencia).subscribe((data) => {
       this.experienciaList = this.experienciaList.filter(
         (exp) => exp.id !== idExperiencia
       );

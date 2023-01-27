@@ -1,34 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PortfolioService } from 'src/app/services/portfolio.service';
 import { TecnologiaDTO } from '../../dto/tecnologia-dto';
+import { TecnologiaService } from '../../services/tecnologia.service';
 
 @Component({
   selector: 'app-aptitudes',
   templateUrl: './aptitudes.component.html',
   styleUrls: ['./aptitudes.component.css'],
 })
-export class AptitudesComponent implements OnInit {
-  tecnologiaList: TecnologiaDTO[] = [];
-  form!: FormGroup;
+export class AptitudesComponent {
+  @Input() tecnologiaList: TecnologiaDTO[] = [];
+  form: FormGroup;
   modoEdicion: boolean = false;
 
   constructor(
-    private datosPortfolio: PortfolioService,
+    private tecnologiaService: TecnologiaService,
     private formBuilder: FormBuilder
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.form = this.formBuilder.group({
       id: [0, [Validators.required]],
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       imgUrl: ['', [Validators.required]],
       progreso: [0, [Validators.required]],
-    });
-
-    this.datosPortfolio.obtenerDatos().subscribe((data) => {
-      this.tecnologiaList = data.tecnologias;
     });
   }
 
@@ -49,7 +43,7 @@ export class AptitudesComponent implements OnInit {
     let tecnologiaForm: TecnologiaDTO = this.form.value;
     let idTecnologia: number = tecnologiaForm.id;
 
-    this.datosPortfolio
+    this.tecnologiaService
       .guardarTecnologia(tecnologiaForm, idTecnologia)
       .subscribe((data) => {
         this.tecnologiaList = this.tecnologiaList.map((tec) =>
@@ -60,9 +54,11 @@ export class AptitudesComponent implements OnInit {
 
   private guardarTecnologia(): void {
     let nuevaTecnologia: TecnologiaDTO = this.form.value;
-    this.datosPortfolio.nuevaTecnologia(nuevaTecnologia).subscribe((data) => {
-      this.tecnologiaList.push(data);
-    });
+    this.tecnologiaService
+      .nuevaTecnologia(nuevaTecnologia)
+      .subscribe((data) => {
+        this.tecnologiaList.push(data);
+      });
   }
 
   onAgregar(): void {
@@ -71,10 +67,12 @@ export class AptitudesComponent implements OnInit {
   }
 
   onEliminar(idTecnologiia: number): void {
-    this.datosPortfolio.eliminarTecnologia(idTecnologiia).subscribe((data) => {
-      this.tecnologiaList = this.tecnologiaList.filter(
-        (tec) => tec.id !== idTecnologiia
-      );
-    });
+    this.tecnologiaService
+      .eliminarTecnologia(idTecnologiia)
+      .subscribe((data) => {
+        this.tecnologiaList = this.tecnologiaList.filter(
+          (tec) => tec.id !== idTecnologiia
+        );
+      });
   }
 }

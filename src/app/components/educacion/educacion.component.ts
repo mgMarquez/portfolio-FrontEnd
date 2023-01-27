@@ -1,24 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { EducacionDTO } from '../../dto/educacion-dto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EducacionService } from '../../services/educacion.service';
 
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css'],
 })
-export class EducacionComponent implements OnInit {
-  educacionList: EducacionDTO[] = [];
-  form!: FormGroup;
+export class EducacionComponent {
+  @Input() educacionList: EducacionDTO[] = [];
+  form: FormGroup;
   modoEdicion: boolean = false;
 
   constructor(
-    private datosPortfolio: PortfolioService,
+    private educacionService: EducacionService,
     private formBuilder: FormBuilder
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     this.form = this.formBuilder.group({
       id: [0, [Validators.required]],
       titulo: ['', [Validators.required]],
@@ -28,10 +27,6 @@ export class EducacionComponent implements OnInit {
       webUrl: ['', [Validators.required]],
       inicio: ['', [Validators.required]],
       fin: ['', [Validators.required]],
-    });
-
-    this.datosPortfolio.obtenerDatos().subscribe((data) => {
-      this.educacionList = data.educaciones;
     });
   }
 
@@ -52,7 +47,7 @@ export class EducacionComponent implements OnInit {
     let educacionForm: EducacionDTO = this.form.value;
 
     let idEducacion: number = educacionForm.id;
-    this.datosPortfolio
+    this.educacionService
       .guardarEducacion(educacionForm, idEducacion)
       .subscribe((data) => {
         this.educacionList = this.educacionList.map((edu) =>
@@ -64,7 +59,7 @@ export class EducacionComponent implements OnInit {
   private guardarEducacion(): void {
     let nuevaEducacion: EducacionDTO = this.form.value;
     console.log(nuevaEducacion);
-    this.datosPortfolio.nuevaEducacion(nuevaEducacion).subscribe((data) => {
+    this.educacionService.nuevaEducacion(nuevaEducacion).subscribe((data) => {
       console.log(data);
       this.educacionList.push(data);
     });
@@ -76,7 +71,7 @@ export class EducacionComponent implements OnInit {
   }
 
   onEliminar(idEducacion: number): void {
-    this.datosPortfolio.eliminarEducacion(idEducacion).subscribe((data) => {
+    this.educacionService.eliminarEducacion(idEducacion).subscribe((data) => {
       console.log(data);
       this.educacionList = this.educacionList.filter(
         (edu) => edu.id !== idEducacion

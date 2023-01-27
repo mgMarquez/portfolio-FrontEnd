@@ -1,32 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PortfolioService } from 'src/app/services/portfolio.service';
 import { PersonaDTO } from '../../dto/persona-dto';
 
 @Component({
   selector: 'app-encabezado',
   templateUrl: './encabezado.component.html',
-  styleUrls: ['./encabezado.component.css']
+  styleUrls: ['./encabezado.component.css'],
 })
-export class EncabezadoComponent implements OnInit {
-  persona: PersonaDTO = new PersonaDTO();
-  prueba: string = 'prueba';
-  form!: FormGroup;
+export class EncabezadoComponent {
+  @Input() persona: PersonaDTO = new PersonaDTO();
+  @Output() onUpdatePersona: EventEmitter<PersonaDTO> = new EventEmitter();
+  form: FormGroup;
 
-  constructor(private datosPorfolio:PortfolioService, 
-    private FormBuilder:FormBuilder) { }
-
-  ngOnInit(): void {
+  constructor(private FormBuilder: FormBuilder) {
     this.form = this.FormBuilder.group({
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
       profesion: ['', [Validators.required]],
       ubicacion: ['', [Validators.required]],
       fotoUrl: ['', [Validators.required]],
-      bannerUrl: ['', [Validators.required]]
-    });
-    this.datosPorfolio.obtenerDatos().subscribe(data => {
-      this.persona = data.persona;
+      bannerUrl: ['', [Validators.required]],
     });
   }
 
@@ -35,9 +28,9 @@ export class EncabezadoComponent implements OnInit {
   }
 
   onSubmit(): void {
-    let copiaPersona: PersonaDTO = {...this.persona};
+    let copiaPersona: PersonaDTO = { ...this.persona };
     let personaForm: PersonaDTO = this.form.value;
-    
+
     copiaPersona.nombre = personaForm.nombre;
     copiaPersona.apellido = personaForm.apellido;
     copiaPersona.profesion = personaForm.profesion;
@@ -45,10 +38,6 @@ export class EncabezadoComponent implements OnInit {
     copiaPersona.fotoUrl = personaForm.fotoUrl;
     copiaPersona.bannerUrl = personaForm.bannerUrl;
 
-    console.log(copiaPersona);
-    this.datosPorfolio.guardarPersona(copiaPersona).subscribe(data => {
-      console.log(data);
-      this.persona = data;
-    })
+    this.onUpdatePersona.emit(copiaPersona);
   }
 }

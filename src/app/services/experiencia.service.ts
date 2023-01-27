@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ExperienciaService {
-  url: string = 'https://portfolio-mgmarquez.koyeb.app/api/personas';
+  url: string =
+    'https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias';
 
   constructor(private http: HttpClient) {}
 
@@ -16,21 +17,16 @@ export class ExperienciaService {
     idExperiencia: number
   ): Observable<ExperienciaDTO> {
     return this.http.put<ExperienciaDTO>(
-      `${this.url}/1/experiencias/${idExperiencia}`,
+      `${this.url}/${idExperiencia}`,
       experienciaActualizada
     );
   }
 
   nuevaExperiencia(experiencia: ExperienciaDTO): Observable<ExperienciaDTO> {
-    return this.http.post<ExperienciaDTO>(
-      `${this.url}/1/experiencias/`,
-      experiencia
-    );
+    return this.http.post<ExperienciaDTO>(`${this.url}`, experiencia);
   }
 
   eliminarExperiencia(idExperiencia: number): Observable<any> {
-    return this.http.delete<any>(
-      `${this.url}/1/experiencias/${idExperiencia}`
-    );
+    return this.http.delete<any>(`${this.url}/${idExperiencia}`);
   }
 }

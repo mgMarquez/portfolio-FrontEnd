@@ -25,32 +25,7 @@ export class PortfolioService {
       personaActualizada
     );
   }
-
-  guardarEducacion(
-    educacionActualizada: EducacionDTO,
-    idEducacion: number
-  ): Observable<EducacionDTO> {
-    return this.http.put<EducacionDTO>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/' +
-        idEducacion,
-      educacionActualizada
-    );
-  }
-
-  nuevaEducacion(educacion: EducacionDTO): Observable<EducacionDTO> {
-    return this.http.post<EducacionDTO>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/',
-      educacion
-    );
-  }
-
-  eliminarEducacion(idEducacion: number): Observable<any> {
-    return this.http.delete<any>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones/' +
-        idEducacion
-    );
-  }
-
+  
   guardarTecnologia(
     tecnologiaActualizada: TecnologiaDTO,
     idTecnologia: number

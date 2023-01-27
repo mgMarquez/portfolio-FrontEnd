@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { EducacionDTO } from '../../dto/educacion-dto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EducacionService } from '../../services/educacion.service';
 
 @Component({
   selector: 'app-educacion',
@@ -14,7 +15,7 @@ export class EducacionComponent {
   modoEdicion: boolean = false;
 
   constructor(
-    private datosPortfolio: PortfolioService,
+    private educacionService: EducacionService,
     private formBuilder: FormBuilder
   ) {
     this.form = this.formBuilder.group({
@@ -46,7 +47,7 @@ export class EducacionComponent {
     let educacionForm: EducacionDTO = this.form.value;
 
     let idEducacion: number = educacionForm.id;
-    this.datosPortfolio
+    this.educacionService
       .guardarEducacion(educacionForm, idEducacion)
       .subscribe((data) => {
         this.educacionList = this.educacionList.map((edu) =>
@@ -58,7 +59,7 @@ export class EducacionComponent {
   private guardarEducacion(): void {
     let nuevaEducacion: EducacionDTO = this.form.value;
     console.log(nuevaEducacion);
-    this.datosPortfolio.nuevaEducacion(nuevaEducacion).subscribe((data) => {
+    this.educacionService.nuevaEducacion(nuevaEducacion).subscribe((data) => {
       console.log(data);
       this.educacionList.push(data);
     });
@@ -70,7 +71,7 @@ export class EducacionComponent {
   }
 
   onEliminar(idEducacion: number): void {
-    this.datosPortfolio.eliminarEducacion(idEducacion).subscribe((data) => {
+    this.educacionService.eliminarEducacion(idEducacion).subscribe((data) => {
       console.log(data);
       this.educacionList = this.educacionList.filter(
         (edu) => edu.id !== idEducacion

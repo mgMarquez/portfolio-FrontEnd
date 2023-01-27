@@ -1,8 +1,14 @@
 <body class="bg-primary bg-gradient bg-opacity-25">
   <app-menu-navegacion></app-menu-navegacion>
   <main class="px-5">
-    <app-encabezado [persona]="portfolio.persona"></app-encabezado>
-    <app-acerca-de [persona]="portfolio.persona"></app-acerca-de>
+    <app-encabezado
+      [persona]="portfolio.persona"
+      (onUpdatePersona)="updatePersona($event)"
+    ></app-encabezado>
+    <app-acerca-de
+      [persona]="portfolio.persona"
+      (onUpdateAcercaDe)="updatePersona($event)"
+    ></app-acerca-de>
     <app-experiencia
       [experienciaList]="portfolio.experiencias"
     ></app-experiencia>

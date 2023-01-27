@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { PortfolioDTO } from '../../dto/portfolio-dto';
+import { PersonaDTO } from '../../dto/persona-dto';
 
 @Component({
   selector: 'app-portfolio',
@@ -17,6 +18,12 @@ export class PortfolioComponent implements OnInit {
   ngOnInit(): void {
     this.portfolioService.obtenerDatos().subscribe((portfolio) => {
       this.portfolio = portfolio;
+    });
+  }
+
+  updatePersona(persona: PersonaDTO): void {
+    this.portfolioService.guardarPersona(persona).subscribe((data) => {
+      this.portfolio.persona = data;
     });
   }
 }

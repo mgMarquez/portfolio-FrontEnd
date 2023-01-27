@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PortfolioService } from 'src/app/services/portfolio.service';
 import { PersonaDTO } from '../../dto/persona-dto';
 
 @Component({
@@ -10,12 +9,10 @@ import { PersonaDTO } from '../../dto/persona-dto';
 })
 export class EncabezadoComponent {
   @Input() persona: PersonaDTO = new PersonaDTO();
+  @Output() onUpdatePersona: EventEmitter<PersonaDTO> = new EventEmitter();
   form: FormGroup;
 
-  constructor(
-    private datosPorfolio: PortfolioService,
-    private FormBuilder: FormBuilder
-  ) {
+  constructor(private FormBuilder: FormBuilder) {
     this.form = this.FormBuilder.group({
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
@@ -41,10 +38,6 @@ export class EncabezadoComponent {
     copiaPersona.fotoUrl = personaForm.fotoUrl;
     copiaPersona.bannerUrl = personaForm.bannerUrl;
 
-    console.log(copiaPersona);
-    this.datosPorfolio.guardarPersona(copiaPersona).subscribe((data) => {
-      console.log(data);
-      this.persona = data;
-    });
+    this.onUpdatePersona.emit(copiaPersona);
   }
 }

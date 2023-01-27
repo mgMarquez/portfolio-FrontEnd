@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PersonaDTO } from '../../dto/persona-dto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -10,12 +9,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AcercaDeComponent {
   @Input() persona: PersonaDTO = new PersonaDTO();
+  @Output() onUpdateAcercaDe: EventEmitter<PersonaDTO> = new EventEmitter();
   form: FormGroup;
 
-  constructor(
-    private datosPorfolio: PortfolioService,
-    private FormBuilder: FormBuilder
-  ) {
+  constructor(private FormBuilder: FormBuilder) {
     this.form = this.FormBuilder.group({
       acercaDe: ['', [Validators.required]],
     });
@@ -31,9 +28,6 @@ export class AcercaDeComponent {
 
     copiaPersona.acercaDe = personaForm.acercaDe;
 
-    this.datosPorfolio.guardarPersona(copiaPersona).subscribe((data) => {
-      console.log(data);
-      this.persona = data;
-    });
+    this.onUpdateAcercaDe.emit(copiaPersona);
   }
 }

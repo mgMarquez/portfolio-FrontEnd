@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PortfolioService } from 'src/app/services/portfolio.service';
 import { ProyectoDTO } from '../../dto/proyecto-dto';
+import { ProyectoService } from '../../services/proyecto.service';
 
 @Component({
   selector: 'app-logros',
@@ -14,7 +14,7 @@ export class LogrosComponent {
   modoEdicion: boolean = false;
 
   constructor(
-    private datosPortfolio: PortfolioService,
+    private proyectoService: ProyectoService,
     private formBuilder: FormBuilder
   ) {
     this.form = this.formBuilder.group({
@@ -44,7 +44,7 @@ export class LogrosComponent {
 
     let idProyecto: number = proyectoForm.id;
 
-    this.datosPortfolio
+    this.proyectoService
       .guardarProyecto(proyectoForm, idProyecto)
       .subscribe((data) => {
         this.proyectoList = this.proyectoList.map((proy) =>
@@ -55,7 +55,7 @@ export class LogrosComponent {
 
   private guardarProyecto(): void {
     let nuevaProyecto: ProyectoDTO = this.form.value;
-    this.datosPortfolio.nuevoProyecto(nuevaProyecto).subscribe((data) => {
+    this.proyectoService.nuevoProyecto(nuevaProyecto).subscribe((data) => {
       this.proyectoList.push(data);
     });
   }
@@ -66,7 +66,7 @@ export class LogrosComponent {
   }
 
   onEliminar(idProyecto: number): void {
-    this.datosPortfolio.eliminarProyecto(idProyecto).subscribe((data) => {
+    this.proyectoService.eliminarProyecto(idProyecto).subscribe((data) => {
       this.proyectoList = this.proyectoList.filter(
         (proy) => proy.id !== idProyecto
       );

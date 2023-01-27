@@ -19,6 +19,7 @@ import { InterceptorService } from './services/interceptor.service';
 import { ExperienciaService } from './services/experiencia.service';
 import { EducacionService } from './services/educacion.service';
 import { TecnologiaService } from './services/tecnologia.service';
+import { ProyectoService } from './services/proyecto.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TecnologiaService } from './services/tecnologia.service';
     ExperienciaService,
     EducacionService,
     TecnologiaService,
+    ProyectoService,
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
   ],
   bootstrap: [AppComponent],

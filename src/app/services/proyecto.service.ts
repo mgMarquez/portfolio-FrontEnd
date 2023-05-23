@@ -29,4 +29,8 @@ export class ProyectoService {
   eliminarProyecto(idProyecto: number): Observable<any> {
     return this.http.delete<any>(`${this.url}/${idProyecto}`);
   }
+
+  obtenerTodosProyectos(): Observable<ProyectoDTO[]> {
+    return this.http.get<ProyectoDTO[]>(`${this.url}`);
+  }
 }

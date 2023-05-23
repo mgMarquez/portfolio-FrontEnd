@@ -1,0 +1,83 @@
+<!-- modal editar -->
+<div
+  class="modal modal-lg fade"
+  id="modalProyecto"
+  tabindex="-1"
+  aria-labelledby="proyectoModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary bg-gradient text-white">
+        <h1 class="modal-title fs-5" id="proyectoModalLabel">Proyecto</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body bg-light">
+        <!-- form proyecto de mi-->
+        <form [formGroup]="form">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tituloInput"
+              placeholder="titulo"
+              formControlName="titulo"
+            />
+            <label for="tituloInput">Titulo</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea
+              class="form-control"
+              id="descripcionInput"
+              placeholder="descripcion"
+              formControlName="descripcion"
+              style="height: 100px"
+            ></textarea>
+            <label for="descripcionInput">Descripcion</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="imgUrlInput"
+              placeholder="imgUrl"
+              formControlName="imgUrl"
+            />
+            <label for="imgUrlInput">URL imagen</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="webUrlInput"
+              placeholder="webUrl"
+              formControlName="webUrl"
+            />
+            <label for="webUrlInput">URL web</label>
+          </div>
+        </form>
+        <!-- fin de form -->
+      </div>
+      <div class="modal-footer bg-secondary bg-opacity-25">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="onSubmit()"
+          data-bs-dismiss="modal"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- fin modal -->

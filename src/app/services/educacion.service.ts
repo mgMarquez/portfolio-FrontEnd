@@ -29,4 +29,8 @@ export class EducacionService {
   eliminarEducacion(idEducacion: number): Observable<any> {
     return this.http.delete<any>(`${this.url}/${idEducacion}`);
   }
+
+  obtenerTodasEducacion(): Observable<EducacionDTO[]> {
+    return this.http.get<EducacionDTO[]>(`${this.url}`);
+  }
 }

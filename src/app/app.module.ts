@@ -21,6 +21,7 @@ import { EducacionService } from './services/educacion.service';
 import { TecnologiaService } from './services/tecnologia.service';
 import { ProyectoService } from './services/proyecto.service';
 import { ExperienciaModalComponent } from './components/experiencia/experiencia-modal/experiencia-modal.component';
+import { EducacionModalComponent } from './components/educacion/educacion-modal/educacion-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ExperienciaModalComponent } from './components/experiencia/experiencia-
     LoginComponent,
     PortfolioComponent,
     ExperienciaModalComponent,
+    EducacionModalComponent,
   ],
   imports: [
     BrowserModule,

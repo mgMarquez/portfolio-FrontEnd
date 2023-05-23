@@ -29,4 +29,8 @@ export class TecnologiaService {
   eliminarTecnologia(idTecnologia: number): Observable<any> {
     return this.http.delete<any>(`${this.url}/${idTecnologia}`);
   }
+
+  obtenerTodasTecnologias(): Observable<TecnologiaDTO[]> {
+    return this.http.get<TecnologiaDTO[]>(`${this.url}`);
+  }
 }

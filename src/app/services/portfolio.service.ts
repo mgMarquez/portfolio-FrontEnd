@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PortfolioDTO } from '../dto/portfolio-dto';
 import { PersonaDTO } from '../dto/persona-dto';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PortfolioService {
-  url: string = 'https://portfolio-mgmarquez.koyeb.app/api/portfolio';
+  url: string = `${environment.apiURL}/api/portfolio`;
   constructor(private http: HttpClient) {}
 
   obtenerDatos(): Observable<PortfolioDTO> {
@@ -17,7 +18,7 @@ export class PortfolioService {
 
   guardarPersona(personaActualizada: PersonaDTO): Observable<any> {
     return this.http.put<any>(
-      'https://portfolio-mgmarquez.koyeb.app/api/personas/1',
+      `${environment.apiURL}/api/personas/1`,
       personaActualizada
     );
   }

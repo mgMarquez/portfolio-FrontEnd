@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ExperienciaDTO } from '../dto/experiencia-dto';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExperienciaService {
-  url: string =
-    'https://portfolio-mgmarquez.koyeb.app/api/personas/1/experiencias';
+  url: string = `${environment.apiURL}/api/personas/1/experiencias`;
 
   constructor(private http: HttpClient) {}
 
@@ -28,5 +28,9 @@ export class ExperienciaService {
 
   eliminarExperiencia(idExperiencia: number): Observable<any> {
     return this.http.delete<any>(`${this.url}/${idExperiencia}`);
+  }
+
+  obtenerTodasExperiencias(): Observable<ExperienciaDTO[]> {
+    return this.http.get<ExperienciaDTO[]>(`${this.url}`);
   }
 }

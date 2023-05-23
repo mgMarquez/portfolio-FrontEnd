@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { EducacionDTO } from '../dto/educacion-dto';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EducacionService {
-  url: string =
-    'https://portfolio-mgmarquez.koyeb.app/api/personas/1/educaciones';
+  url: string = `${environment.apiURL}/api/personas/1/educaciones`;
 
   constructor(private http: HttpClient) {}
 

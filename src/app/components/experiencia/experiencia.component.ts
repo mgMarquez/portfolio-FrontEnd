@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
+import { Component, Input } from '@angular/core';
 import { ExperienciaDTO } from '../../dto/experiencia-dto';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExperienciaService } from '../../services/experiencia.service';
 
 @Component({
@@ -11,68 +9,20 @@ import { ExperienciaService } from '../../services/experiencia.service';
 })
 export class ExperienciaComponent {
   @Input() experienciaList: ExperienciaDTO[] = [];
-  form: FormGroup;
-  modoEdicion: boolean = false;
 
-  constructor(
-    private experienciaService: ExperienciaService,
-    private formBuilder: FormBuilder
-  ) {
-    this.form = this.formBuilder.group({
-      id: [0, [Validators.required]],
-      posicion: ['', [Validators.required]],
-      compania: ['', [Validators.required]],
-      descripcion: ['', [Validators.required]],
-      imgUrl: ['', [Validators.required]],
-      webUrl: ['', [Validators.required]],
-      inicio: ['', [Validators.required]],
-      fin: ['', [Validators.required]],
-    });
-  }
-
-  onEditar(experienciaDTO: ExperienciaDTO): void {
-    this.form.patchValue(experienciaDTO);
-    this.modoEdicion = true;
-  }
-
-  onSubmit(): void {
-    if (this.modoEdicion) {
-      this.editarExperiencia();
-    } else {
-      this.guardarExperiencia();
-    }
-  }
-
-  private editarExperiencia(): void {
-    let experienciaForm: ExperienciaDTO = this.form.value;
-
-    let idExperiencia: number = experienciaForm.id;
-    this.experienciaService
-      .guardarExperiencia(experienciaForm, idExperiencia)
-      .subscribe((data) => {
-        this.experienciaList = this.experienciaList.map((exp) =>
-          exp.id !== idExperiencia ? exp : data
-        );
-      });
-  }
-
-  private guardarExperiencia(): void {
-    let nuevaExperiencia: ExperienciaDTO = this.form.value;
-    this.experienciaService.nuevaExperiencia(nuevaExperiencia).subscribe((data) => {
-      this.experienciaList.push(data);
-    });
-  }
-
-  onAgregar(): void {
-    this.modoEdicion = false;
-    this.form.reset();
-  }
+  constructor(private experienciaService: ExperienciaService) {}
 
   onEliminar(idExperiencia: number): void {
-    this.experienciaService.eliminarExperiencia(idExperiencia).subscribe((data) => {
+    this.experienciaService.eliminarExperiencia(idExperiencia).subscribe(() => {
       this.experienciaList = this.experienciaList.filter(
         (exp) => exp.id !== idExperiencia
       );
+    });
+  }
+
+  cargarListaExperiencias(): void {
+    this.experienciaService.obtenerTodasExperiencias().subscribe((exp) => {
+      this.experienciaList = exp;
     });
   }
 }

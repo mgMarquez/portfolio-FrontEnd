@@ -16,6 +16,10 @@ export class PortfolioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cargarDatosPortfolio();
+  }
+
+  cargarDatosPortfolio(): void {
     this.portfolioService.obtenerDatos().subscribe((portfolio) => {
       this.portfolio = portfolio;
     });

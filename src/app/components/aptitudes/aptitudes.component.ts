@@ -10,6 +10,7 @@ import { TecnologiaService } from '../../services/tecnologia.service';
 })
 export class AptitudesComponent {
   @Input() tecnologiaList: TecnologiaDTO[] = [];
+  @Input() isLogged: boolean = false;
 
   constructor(private tecnologiaService: TecnologiaService) {}
 

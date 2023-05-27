@@ -1,16 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient sticky-top">
   <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img
-          src="../assets/img/APLogo.png"
-          alt="Logo argentina programa"
-          width="110"
-          height=""
-          class="d-inline-block align-text-middle"
-        />
-        #YoProgramo
-      </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">
+      <img
+        src="../assets/img/APLogo.png"
+        alt="Logo argentina programa"
+        width="110"
+        height=""
+        class="d-inline-block align-text-middle"
+      />
+      #YoProgramo
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -28,8 +36,22 @@
         <a class="nav-link" href="#"><i class="fab fa-facebook fs-3"></i></a>
         <a class="nav-link" href="#"><i class="fab fa-twitter fs-3"></i></a>
         <a class="nav-link" href="#"><i class="fab fa-instagram fs-3"></i></a>
-        <button class="btn btn-primary bg-gradient" type="button" (click)="onLogin()" *ngIf="!isLogged">Iniciar Sesion</button>
-        <button class="btn btn-primary bg-gradient" type="button" (click)="onLogout()" *ngIf="isLogged">Cerrar Sesion</button>
+        <button
+          class="btn btn-primary bg-gradient"
+          type="button"
+          (click)="onLogin()"
+          *ngIf="!isLogged"
+        >
+          Iniciar Sesion
+        </button>
+        <button
+          class="btn btn-danger bg-gradient"
+          type="button"
+          (click)="onLogout()"
+          *ngIf="isLogged"
+        >
+          Cerrar Sesion
+        </button>
       </div>
     </div>
   </div>

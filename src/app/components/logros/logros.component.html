@@ -10,6 +10,7 @@
         data-bs-toggle="modal"
         data-bs-target="#modalProyecto"
         (click)="logrosModal.onAgregar()"
+        *ngIf="isLogged"
       >
         <i class="fa-solid fa-plus"></i>
       </button>
@@ -46,6 +47,7 @@
           data-bs-toggle="modal"
           data-bs-target="#modalProyecto"
           (click)="logrosModal.onEditar(proyecto)"
+          *ngIf="isLogged"
         >
           <i class="fa-solid fa-pencil"></i>
         </button>
@@ -55,6 +57,7 @@
           type="button"
           class="btn btn-secondary btn-sm rounded-circle"
           (click)="onEliminar(proyecto.id)"
+          *ngIf="isLogged"
         >
           <i class="fa-solid fa-trash"></i>
         </button>

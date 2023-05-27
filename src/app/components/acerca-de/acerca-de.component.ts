@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AcercaDeComponent {
   @Input() persona: PersonaDTO = new PersonaDTO();
   @Output() onUpdateAcercaDe: EventEmitter<PersonaDTO> = new EventEmitter();
+  @Input() isLogged: boolean = false;
+
   form: FormGroup;
 
   constructor(private FormBuilder: FormBuilder) {

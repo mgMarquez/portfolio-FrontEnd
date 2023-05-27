@@ -11,6 +11,7 @@ import { EducacionService } from '../../services/educacion.service';
 })
 export class EducacionComponent {
   @Input() educacionList: EducacionDTO[] = [];
+  @Input() isLogged: boolean = false;
 
   constructor(private educacionService: EducacionService) {}
 

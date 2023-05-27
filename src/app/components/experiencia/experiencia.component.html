@@ -10,6 +10,7 @@
         data-bs-toggle="modal"
         data-bs-target="#modalExperiencia"
         (click)="experienciaModal.onAgregar()"
+        *ngIf="isLogged"
       >
         <i class="fa-solid fa-plus"></i>
       </button>
@@ -49,6 +50,7 @@
           data-bs-toggle="modal"
           data-bs-target="#modalExperiencia"
           (click)="experienciaModal.onEditar(experiencia)"
+          *ngIf="isLogged"
         >
           <i class="fa-solid fa-pencil"></i>
         </button>
@@ -57,6 +59,7 @@
           type="button"
           class="btn btn-secondary btn-sm rounded-circle"
           (click)="onEliminar(experiencia.id)"
+          *ngIf="isLogged"
         >
           <i class="fa-solid fa-trash"></i>
         </button>

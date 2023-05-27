@@ -10,6 +10,7 @@
         data-bs-toggle="modal"
         data-bs-target="#modalTecnologia"
         (click)="aptitudesModal.onAgregar()"
+        *ngIf="isLogged"
       >
         <i class="fa-solid fa-plus"></i>
       </button>
@@ -38,6 +39,7 @@
           data-bs-toggle="modal"
           data-bs-target="#modalTecnologia"
           (click)="aptitudesModal.onEditar(tecnologia)"
+          *ngIf="isLogged"
         >
           <i class="fa-solid fa-pencil"></i>
         </button>
@@ -47,6 +49,7 @@
           type="button"
           class="btn btn-secondary btn-sm rounded-circle"
           (click)="onEliminar(tecnologia.id)"
+          *ngIf="isLogged"
         >
           <i class="fa-solid fa-trash"></i>
         </button>

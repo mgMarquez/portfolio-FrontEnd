@@ -11,6 +11,7 @@ export class EncabezadoComponent {
   @Input() persona: PersonaDTO = new PersonaDTO();
   @Output() onUpdatePersona: EventEmitter<PersonaDTO> = new EventEmitter();
   form: FormGroup;
+  @Input() isLogged: boolean = false;
 
   constructor(private FormBuilder: FormBuilder) {
     this.form = this.FormBuilder.group({

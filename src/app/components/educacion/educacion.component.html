@@ -10,6 +10,7 @@
         data-bs-toggle="modal"
         data-bs-target="#modalEducacion"
         (click)="educacionModal.onAgregar()"
+        *ngIf="isLogged"
       >
         <i class="fa-solid fa-plus"></i>
       </button>
@@ -49,6 +50,7 @@
           data-bs-toggle="modal"
           data-bs-target="#modalEducacion"
           (click)="educacionModal.onEditar(educacion)"
+          *ngIf="isLogged"
         >
           <i class="fa-solid fa-pencil"></i>
         </button>
@@ -58,6 +60,7 @@
           type="button"
           class="btn btn-secondary btn-sm rounded-circle"
           (click)="onEliminar(educacion.id)"
+          *ngIf="isLogged"
         >
           <i class="fa-solid fa-trash"></i>
         </button>

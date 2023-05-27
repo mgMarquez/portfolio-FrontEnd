@@ -34,4 +34,8 @@ export class AuthService {
   get UsuarioAutenticado() {
     return this.currentUserSubject.value;
   }
+
+  isLoggin(): boolean {
+    return this.currentUserSubject.value;
+  }
 }

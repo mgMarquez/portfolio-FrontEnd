@@ -10,6 +10,7 @@ import { ProyectoService } from '../../services/proyecto.service';
 })
 export class LogrosComponent {
   @Input() proyectoList: ProyectoDTO[] = [];
+  @Input() isLogged: boolean = false;
 
   constructor(private proyectoService: ProyectoService) {}
 

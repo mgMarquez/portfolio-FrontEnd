@@ -6,27 +6,30 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, 
-              private autenticacionService:AuthService,
-              private ruta:Router) { 
-    this.form = this.formBuilder.group(
-        {
-          nombreUsuario:['', [Validators.required, Validators.minLength(5)]],
-          password:['', [Validators.required, Validators.minLength(5)]]
-        }
-      )
+  constructor(
+    private formBuilder: FormBuilder,
+    private autenticacionService: AuthService,
+    private ruta: Router
+  ) {
+    this.form = this.formBuilder.group({
+      nombreUsuario: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
+    });
   }
-  
-  ngOnInit(): void {
-  }
+
+  ngOnInit(): void {}
 
   get NombreUsuario() {
     return this.form.get('nombreUsuario');
+  }
+
+  get Password() {
+    return this.form.get('password');
   }
 
   get NombreUsuarioValid() {
@@ -37,10 +40,6 @@ export class LoginComponent implements OnInit {
     return this.NombreUsuario?.touched && this.NombreUsuario?.errors;
   }
 
-  get Password() {
-    return this.form.get('password');
-  }
-
   get PaswwordValid() {
     return this.Password?.touched && !this.Password?.errors;
   }
@@ -49,11 +48,16 @@ export class LoginComponent implements OnInit {
     return this.Password?.touched && this.Password?.errors;
   }
 
-  onEnviar(event:Event) {
+  onEnviar(event: Event) {
     event.preventDefault;
-    this.autenticacionService.IniciarSesion(this.form.value)
-      .subscribe(() => {
+    this.autenticacionService.IniciarSesion(this.form.value).subscribe({
+      next: (v) => {
+        console.log(v);
+      },
+      error: (e) => console.error(e),
+      complete: () => {
         this.ruta.navigate(['/portfolio']);
-      })
+      },
+    });
   }
 }

@@ -9,6 +9,7 @@ import { ExperienciaService } from '../../services/experiencia.service';
 })
 export class ExperienciaComponent {
   @Input() experienciaList: ExperienciaDTO[] = [];
+  @Input() isLogged: boolean = false;
 
   constructor(private experienciaService: ExperienciaService) {}
 

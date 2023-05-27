@@ -17,7 +17,6 @@ export class EducacionComponent {
 
   onEliminar(idEducacion: number): void {
     this.educacionService.eliminarEducacion(idEducacion).subscribe((data) => {
-      console.log(data);
       this.educacionList = this.educacionList.filter(
         (edu) => edu.id !== idEducacion
       );

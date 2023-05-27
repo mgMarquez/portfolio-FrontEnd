@@ -51,9 +51,6 @@ export class LoginComponent implements OnInit {
   onEnviar(event: Event) {
     event.preventDefault;
     this.autenticacionService.IniciarSesion(this.form.value).subscribe({
-      next: (v) => {
-        console.log(v);
-      },
       error: (e) => console.error(e),
       complete: () => {
         this.ruta.navigate(['/portfolio']);

@@ -14,7 +14,6 @@ export class MenuNavegacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.event.emit();
-    console.log(this.isLogged);
   }
 
   onLogin(): void {
